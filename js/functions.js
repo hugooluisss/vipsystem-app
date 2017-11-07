@@ -110,7 +110,7 @@ var mensajes = {
 			data.nombreBoton = "Aceptar";
 		
 		try{
-			Navigator.Notification.alert (data.mensaje, data.funcion, data.titulo, data.nombreBoton);
+			navigator.notification.alert(data.mensaje, data.funcion, data.titulo, data.nombreBoton);
 		}catch(err){
 			alert(data.mensaje);
 		}
