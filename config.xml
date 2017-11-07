@@ -6,7 +6,7 @@
 		version  = "1.1.1">  
 		
 		<name>VIPSystem</name>  
-		<description>VIP es la herramienta ideal que te auxiliará en todos los procesos comerciales en bazares y mercado</description>  
+		<description>VIP es la herramienta ideal que te auxiliara en todos los procesos comerciales en bazares y mercado</description>  
 		<!--  
 			If you do not want any permissions to be added to your app, add the  
 			following tag to your config.xml; you will still have the INTERNET  
