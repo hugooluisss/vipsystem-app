@@ -43,7 +43,7 @@
 		<plugin name="cordova-plugin-file" source="npm"/>
 		<plugin name="cordova-plugin-file-transfer" source="npm"/>
 		<plugin name="cordova-plugin-media-capture" source="npm"/>
-		<plugin name="org.apache.cordova.dialogs"/>
+		<plugin name="org.apache.cordova.dialogs" source="npm"/>
 
 		
 		<!--<plugin name="cordova-plugin-geolocation" source="npm"/>-->
