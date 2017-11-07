@@ -75,13 +75,13 @@ var app = {
 				});
 			}
 		});
+		
+		mensajes.alert({mensaje: "Hola mundo"});
 	}
 };
 
-//app.initialize();
+app.initialize();
 
 $(document).ready(function(){
-	app.onDeviceReady();
-	
-	mensajes.alert({mensaje: "Hola mundo"});
+	//app.onDeviceReady();
 });
