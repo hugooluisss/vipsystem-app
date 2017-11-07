@@ -1,0 +1,123 @@
+#home{
+	overflow-y: hidden;
+	background:#ececec;
+	
+	#menu{
+		background: url("../img/bgLogin.jpg");
+		background-size: cover;
+		background-position-x: center;
+		background-repeat: no-repeat;
+		
+		img{
+		    width: 150px;
+		    margin-bottom: 10px;
+		}
+		
+		.navbar-header{
+		    background: none;
+		    
+		    a{
+		    	color: white;
+		    	position: absolute;
+		    	right: 3rem;
+		    	margin-top: 3px;
+		    }
+		    
+		    .navbar-toggle{
+		        color: white;
+		    }
+		    
+		    .navbar-brand{
+		        color: white;
+		        font-size: 16px;
+		    }
+		    
+		    #dvTitulo{
+		    	
+		    }
+		}
+		
+		.row{
+			margin-right: 0px;
+			margin-left: 0px;
+		}
+		
+		a{	
+			&[role=button]{
+				background: white;
+				border: none;
+				border-right: none;
+				border-radius:inherit;
+				//color: @bgGris;
+				width: 100%;
+				margin-top: 5px;
+				
+				&:last-child{
+					border: none;
+				}
+				
+				.fa-stack{
+					width: auto;
+				}
+				
+				i.fa{
+				}
+				
+				[campo=nombre]{
+					font-size: 11px;
+					width: 100%;
+					padding-top: 10px;
+					padding-bottom: 0px;
+				}
+			}
+		}
+	}
+	
+	#modulo{
+		margin-top: 10px;
+		overflow-y: scroll;
+		font-size: 12px;
+		
+		.container{
+			background: rgba(255, 255, 255, .8);
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+		
+		#tabMercancia{
+			min-height: 80%;
+			
+			.btn-group{
+				margin-top: 10px;
+				margin-bottom: 10px;
+			}
+			
+			.mercancia{
+				.media-object{
+					width: 70px;
+					height: 70px;
+				}
+			}
+		}
+		
+		#winFotografias{
+			.img-responsive{
+				display: inline;
+			}
+		}
+	}
+	
+	.footer{
+		position: relative;
+		margin-top: -50px;
+		height: 40px;
+		clear: both;
+	}
+}
+
+
+.panel-default{
+	.panel-heading{
+		background: red;
+	}
+}
