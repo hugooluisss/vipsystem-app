@@ -15,7 +15,7 @@ function setMenu(){
 		mensajes.confirm({
 			mensaje: "¿Seguro?", 
 			funcion: function(buttonIndex){
-	    		if(buttonIndex == 0) {
+	    		if(buttonIndex == 1) {
 		    		window.localStorage.removeItem("sesion");
 		    		window.localStorage.removeItem("idOrden");
 		    		
