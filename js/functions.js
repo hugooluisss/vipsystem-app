@@ -1,6 +1,5 @@
-server = "http://localhost/lujan-web/";
-server = "http://192.168.2.4/lujan-web/";
 server = "http://192.168.0.7/vip-web/";
+server = "http://app.vipsystem.store/";
 var idUsuario = undefined;
 /*
 *

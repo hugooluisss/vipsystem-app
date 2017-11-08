@@ -1,4 +1,5 @@
 @radius: 15em;
+@cantidadOpciones: 4;
 .menu1{
 	.circle {
 		position: absolute;
@@ -78,25 +79,25 @@
 			transform: rotate(45deg);
 		}
 	}
-	.c-1{
+	.venta{
 		background: #347da8;
 		transition-delay: 0.1s, 0.1s, 0.1s;
-		transform: rotate((90deg/5) * 1);
+		transform: rotate((90deg/@cantidadOpciones) * 1);
 		.link::before {
-			transform: rotate((90deg/5) * -1);
-			content: '\f099';
+			transform: rotate((90deg/@cantidadOpciones) * -1);
+			content: '\f291';
 		}
 	}
-	.c-2 {
+	.productos {
 		background: #2071a1;
 		transition-delay: 0.2s, 0.2s, 0.2s;
-		transform: rotate((90deg/5) * 2);
+		transform: rotate((90deg/@cantidadOpciones) * 2);
 		.link::before {
-			transform: rotate((90deg/5) * -2);
-			content: '\f013';
+			transform: rotate((90deg/@cantidadOpciones) * -2);
+			content: '\f02d';
 		}
 	}
-	.c-3 {
+	/*.c-3 {
 		transition-delay: 0.3s,0.3s, 0.3s;
 		background: #145f8b;
 		transform: rotate((90deg/5) * 3);
@@ -104,13 +105,13 @@
 			transform: rotate((90deg/5) * -3);
 			content: '\f1cb';
 		}
-	}
+	}*/
 	.salir {
 		transition-delay: 0.4s, 0.4s, 0.4s;
 		background: #0c4668;
-		transform: rotate((90deg/5) * 4);
+		transform: rotate((90deg/@cantidadOpciones) * 3);
 		.link::before {
-			transform: rotate((90deg/5) * -4);
+			transform: rotate((90deg/@cantidadOpciones) * -3);
 			content: '\f08b';
 		}
 	}

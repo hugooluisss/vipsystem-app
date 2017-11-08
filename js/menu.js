@@ -13,7 +13,7 @@ function setMenu(){
 	
 	$(".menu1 .salir").click(function(){
 		mensajes.confirm({
-			mensaje: "¿Seguro?", 
+			mensaje: "¿Seguro de querer salir?", 
 			funcion: function(buttonIndex){
 	    		if(buttonIndex == 1) {
 		    		window.localStorage.removeItem("sesion");
