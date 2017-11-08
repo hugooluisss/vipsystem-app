@@ -10,7 +10,7 @@ TUsuario = function(fn){
 				"action": 'login',
 				"movil": '1'
 			}, function(resp){
-				if (resp.band == 'false')
+				if (resp.band == false)
 					console.log(resp.mensaje);
 					
 				if (datos.after !== undefined)

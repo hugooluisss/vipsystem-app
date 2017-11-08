@@ -1,5 +1,9 @@
 function setMenu(){
-	$("#menu").find("a[role=button]").click(function(){
+	$("#click").click(function(){
+		$("#nav").toggleClass("closed");
+	});
+
+	$(".menu1 .salir").find("a[role=button]").click(function(){
 		$("#menuPrincipal").removeClass("in").prop("aria-expanded", "true");
 	});
 	
@@ -7,15 +11,17 @@ function setMenu(){
 		panelOrdenes();
 	});
 	
-	$("#btnSalir").click(function(){
-		alertify.confirm("¿Seguro?", function(e){
-    		if(e) {
-    			//window.plugins.PushbotsPlugin.removeTags(["transportista_" + idTransportista]);
-	    		window.localStorage.removeItem("sesion");
-	    		window.localStorage.removeItem("idOrden");
-	    		//backgroundGeolocation.stop();
-	    		location.href = "index.html";
-	    	}
+	$(".menu1 .salir").click(function(){
+		mensajes.confirm({
+			mensaje: "¿Seguro?", 
+			funcion: function(buttonIndex){
+	    		if(buttonIndex == 0) {
+		    		window.localStorage.removeItem("sesion");
+		    		window.localStorage.removeItem("idOrden");
+		    		
+		    		location.href = "index.html";
+		    	}
+		    }
     	});
 	});
 }

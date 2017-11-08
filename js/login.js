@@ -38,6 +38,8 @@ var app = {
 		
 		if (idUsuario != null && idUsuario != undefined && idUsuario != '')
 			location.href = "inicio.html";
+		else
+			$("#bodyButtons").show("slow");
 			
 		$("#frmLogin").validate({
 			debug: true,
@@ -62,8 +64,8 @@ var app = {
 						$("#frmLogin [type=submit]").prop("disabled", true);
 					},
 					after: function(data){
-						if (data.band == false){
-							alertify.alert("Tus datos no son válidos");
+						if (data.band == false || data.tipo == 1){
+							mensajes.alert({mensaje: "Tus datos no son válidos", title: "No se pudo iniciar sesión"});
 							$("#frmLogin [type=submit]").prop("disabled", false);
 						}else{
 							window.localStorage.removeItem("sesion");
@@ -75,13 +77,11 @@ var app = {
 				});
 			}
 		});
-		
-		mensajes.alert({mensaje: "Hola mundo"});
 	}
 };
 
-app.initialize();
+//app.initialize();
 
 $(document).ready(function(){
-	//app.onDeviceReady();
+	app.onDeviceReady();
 });

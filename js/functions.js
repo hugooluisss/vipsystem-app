@@ -1,6 +1,6 @@
 server = "http://localhost/lujan-web/";
 server = "http://192.168.2.4/lujan-web/";
-//server = "http://10.0.0.5/lujan-web/";
+server = "http://192.168.0.7/vip-web/";
 var idUsuario = undefined;
 /*
 *
@@ -102,18 +102,26 @@ var mensajes = {
 	alert: function(data){
 		if (data.funcion == undefined)
 			data.funcion = function(){};
-			
-		if (data.titulo == undefined)
-			data.titulo = "Alerta";
-			
-		if (data.nombreBoton == undefined)
-			data.nombreBoton = "Aceptar";
 		
 		try{
-			navigator.notification.alert(data.mensaje, data.funcion, data.titulo, data.nombreBoton);
+			navigator.notification.alert(data.mensaje, data.funcion, data.titulo, data.boton);
 		}catch(err){
 			alert(data.mensaje);
 		}
 
+	},
+	
+	confirm: function(data){
+		if (data.funcion == undefined)
+			data.funcion = function(){};
+		
+		try{
+			navigator.notification.confirm(data.mensaje, data.funcion, data.titulo, data.botones);
+		}catch(err){
+			if (confirm(data.mensaje))
+				data.funcion(0);
+			else
+				data.funcion(1);
+		}
 	}
 }
