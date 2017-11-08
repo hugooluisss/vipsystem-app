@@ -102,6 +102,9 @@ var mensajes = {
 	alert: function(data){
 		if (data.funcion == undefined)
 			data.funcion = function(){};
+			
+		if (data.titulo == undefined)
+			data.titulo = " ";
 		
 		try{
 			navigator.notification.alert(data.mensaje, data.funcion, data.titulo, data.boton);
@@ -114,6 +117,10 @@ var mensajes = {
 	confirm: function(data){
 		if (data.funcion == undefined)
 			data.funcion = function(){};
+			
+		if (data.titulo == undefined)
+			data.titulo = " ";
+		
 		
 		try{
 			navigator.notification.confirm(data.mensaje, data.funcion, data.titulo, data.botones);
