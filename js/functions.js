@@ -126,9 +126,9 @@ var mensajes = {
 			navigator.notification.confirm(data.mensaje, data.funcion, data.titulo, data.botones);
 		}catch(err){
 			if (confirm(data.mensaje))
-				data.funcion(0);
-			else
 				data.funcion(1);
+			else
+				data.funcion(2);
 		}
 	}
 }
