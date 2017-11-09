@@ -1,5 +1,5 @@
 server = "http://192.168.0.7/vip-web/";
-server = "http://app.vipsystem.store/";
+server = "https://app.vipsystem.store/";
 var idUsuario = undefined;
 /*
 *
