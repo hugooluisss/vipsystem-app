@@ -7,8 +7,8 @@ function setMenu(){
 		$("#menuPrincipal").removeClass("in").prop("aria-expanded", "true");
 	});
 	
-	$("#menu").find("#btnOrdenes").click(function(){
-		panelOrdenes();
+	$(".menu1").find(".venta").click(function(){
+		panelVentas();
 	});
 	
 	$(".menu1 .salir").click(function(){
