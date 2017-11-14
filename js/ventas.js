@@ -5,10 +5,13 @@ function panelVentas(){
 	$(".menu1").hide("slow");
 	$.get("vistas/ventas/panel.tpl", function(resp){
 		$("#modulo").html(resp);
-		$(".wizard").bootstrapWizard({
-			height: 400
+		/*Gestion de botones del wizard*/
+		$("#wizard").find("button").click(function(){
+			$(".panel").hide();
+			
+			$("#" + $(this).attr("panel")).show();
 		});
-
+		
 		$.post(server + "cventas", {
 			"usuario": idUsuario,
 			"action": "getBazares",
@@ -17,7 +20,7 @@ function panelVentas(){
 			$("#selBazar").find("option").remove();
 			$.each(bazares, function(i, bazar){
 				$("#selBazar").append($("<option />", {
-					"text": bazar.nombre,
+					"text": "Bazar " + bazar.nombre,
 					"value": bazar.idBazar
 				}));
 				
@@ -25,11 +28,27 @@ function panelVentas(){
 			});
 		}, "json");
 		
+		$("#txtFiltro").keyup(function(){
+			var texto = $("#txtFiltro").val().toUpperCase();
+			$(".producto").each(function(){
+				var el = $(this);
+				if (texto == '')
+					el.show();
+				else if (el.text().toUpperCase().search(texto) >= 0)
+					el.show();
+				else
+					el.hide();
+			});
+		});
+		
+		
 		$(".btnNuevaVenta").click(function(){
 			if (confirm("¿Seguro?")){
 				nuevaVenta();
 			}
 		});
+		
+		nuevaVenta();
 	});
 	
 	function nuevaVenta(){
@@ -65,10 +84,11 @@ function panelVentas(){
 			$("#lstProductos").html("");
 			$.each(productos, function(i, producto){
 				var col = $("<div />", {
-					class: "col-xs-4 text-center producto"
-				}).append($('<img />', {
-					class: "img-responsive",
-					src: "img/logo.png"
+					class: "col-xs-6 col-sm-4 text-center producto",
+					json: producto.json,
+					find: producto.codigoBarras + " " + producto.codigoInterno + " " + producto.descripcion
+				}).append($("<h3/>", {
+					text: producto.codigoBarras
 				})).append($("<div />", {
 					text: producto.descripcion
 				}));
