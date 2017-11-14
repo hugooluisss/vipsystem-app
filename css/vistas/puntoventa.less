@@ -1,4 +1,19 @@
 #panelVenta{
+	.paneles{
+		margin-top: 123px;
+	}
+	
+	.box{
+		.row{
+			margin-right: 0px;
+			margin-left: 0px;
+			
+			.col-xs-12{
+				padding-left: 0px;
+				padding-right: 0px;
+			}
+		}
+	}
 	nav{
 		margin-bottom: 0px;
 	}
@@ -25,13 +40,22 @@
 		}
 	}
 	
-	#lstProductos{
-			font-size: arial;
-			.producto{
-				padding: 5px 5px 5px 5px;
-				font-size: 14px;
-				height: 100px;
-				border: 1px solid @color1;
-			}
+	#dvProductos{
+		padding-top: 10px;
+		
+		.panel{
+			padding-left: -15px !important;
+			padding-right: -15px !important;
 		}
+	}
+	
+	#lstProductos{
+		font-size: arial;
+		.producto{
+			padding: 5px 5px 5px 5px;
+			font-size: 14px;
+			height: 100px;
+			border: 1px solid @color1;
+		}
+	}
 }

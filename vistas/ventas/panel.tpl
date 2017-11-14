@@ -1,5 +1,5 @@
 <div id="panelVenta">
-	<nav id="header" class="navbar navbar-default">
+	<nav id="header" class="navbar navbar-default navbar-fixed-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<div class="text-center">
@@ -7,20 +7,17 @@
 				</div>
 			</div>
 		</div>
-	</nav>
-	<ul id="wizard">
-		<li>
-			<button class="btn btn-primary" panel="pnlVenta">Nota</button>
-		</li>
-		<li>
-			<button class="btn btn-primary" panel="pnlProductos">Productos</button>
-		</li>
-		<li>
-			<button class="btn btn-primary" panel="pnlPagar">Pagar</button>
-		</li>
-	</ul>
-	
-	<div class="box panel" id="pnlVenta">
+		<ul id="wizard">
+			<li>
+				<button class="btn btn-primary" panel="pnlVenta">Nota</button>
+			</li>
+			<li>
+				<button class="btn btn-primary" panel="pnlProductos">Productos</button>
+			</li>
+			<li>
+				<button class="btn btn-primary" panel="pnlPagar">Pagar</button>
+			</li>
+		</ul>
 		<div class="row">
 			<div class="col-xs-12">
 				<select class="form-control select-xs" id="selBazar" name="selBazar">
@@ -35,17 +32,23 @@
 						<button class="btn btn-primary btnNuevaVenta">Nueva venta</button>
 					</div>
 					<div class="btn-group">
-						<button class="btn btn-default" data-toggle="modal" data-target="#winVentas">Historial de ventas</button>
+						<button class="btn btn-warning" data-toggle="modal" data-target="#winVentas">Historial de ventas</button>
 					</div>
 				</div>
 			</div>
 		</div>
+	</nav>
+	
+	
+	<div class="box paneles" id="pnlVenta">
+		
+		
 		<div class="row">
 			<div class="col-xs-12" id="dvProductos"></div>
 		</div>
 	</div>
 	
-	<div class="box panel" id="pnlProductos" style="display: none">
+	<div class="box paneles" id="pnlProductos" style="display: none">
 		<div class="row">
 			<div class="col-xs-12">
 				<form class="form-horizontal" id="frmFiltro">
@@ -54,6 +57,9 @@
 							<i class="fa fa-search" aria-hidden="true"></i>
 						</span>
 						<input id="txtFiltro" placeholder="Búsqueda rápida" class="form-control">
+						<span class="input-group-addon">
+							<i class="fa fa-plus" aria-hidden="true"></i>
+						</span>
 					</div>
 				</form>
 			</div>
@@ -63,7 +69,7 @@
 		</div>
 	</div>
 	
-	<div class="box panel" id="pnlPagar" style="display: none">
+	<div class="box paneles" id="pnlPagar" style="display: none">
 		<div class="row">
 			<div class="col-xs-5 col-sm-3">
 				<div class="input-group input-group-xs">
@@ -131,6 +137,66 @@
 			<button class="btn btn-primary" id="btnPagar">Registro de pagos</button>
 		</div>
 		
+	</div>
+	
+	<div class="modal fade" id="winAddProducto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" datos="">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Producto</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<label for="txtCodigo" class="col-xs-3 text-right">Interno</label>
+						<div class="col-xs-9">
+							<input class="form-control input-xs" campo="codigoInterno" disabled="true" readonly="true">
+						</div>
+					</div>
+					<div class="row">
+						<label for="txtCodigo" class="col-xs-3 text-right">Barras</label>
+						<div class="col-xs-9">
+							<input class="form-control input-xs" campo="codigoBarras" disabled="true" readonly="true">
+						</div>
+					</div>
+					<div class="row">
+						<label for="txtCodigo" class="col-xs-3 text-right">Barras</label>
+						<div class="col-xs-9">
+							<textarea readonly="true" disabled="true" campo="descripcion" class="form-control"></textarea>
+						</div>
+					</div>
+					<hr />
+					<div class="row">
+						<label for="txtCodigo" class="col-xs-3 text-right">Color</label>
+						<div class="col-xs-9">
+							<input class="form-control input-xs" campo="color" disabled="true" readonly="true">
+						</div>
+					</div>
+					<div class="row">
+						<label for="txtCodigo" class="col-xs-3 text-right">Talla</label>
+						<div class="col-xs-9">
+							<input class="form-control input-xs" campo="talla" disabled="true" readonly="true">
+						</div>
+					</div>
+					<div class="row">
+						<label for="txtCodigo" class="col-xs-3 text-right">Existencia</label>
+						<div class="col-xs-4">
+							<input class="form-control input-xs" campo="existencia" disabled="true" readonly="true">
+						</div>
+					</div>
+					<div class="row">
+						<label for="txtCodigo" class="col-xs-3 text-right">Descuento</label>
+						<div class="col-xs-4">
+							<input class="form-control input-xs" campo="descuento" disabled="true" readonly="true">
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="addProducto btn btn-primary" id="btnAddCarrito">Agregar</button>
+					<button type="reset" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+				</div>
+			</div>
+		</div>
 	</div>
 	
 	

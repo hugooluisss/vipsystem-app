@@ -2,12 +2,13 @@ var productos = {};
 var clientes = {};
 
 function panelVentas(){
+	var venta = new TVenta;
 	$(".menu1").hide("slow");
 	$.get("vistas/ventas/panel.tpl", function(resp){
 		$("#modulo").html(resp);
 		/*Gestion de botones del wizard*/
 		$("#wizard").find("button").click(function(){
-			$(".panel").hide();
+			$(".paneles").hide();
 			
 			$("#" + $(this).attr("panel")).show();
 		});
@@ -48,8 +49,30 @@ function panelVentas(){
 			}
 		});
 		
+		
+		$("#winAddProducto").on("show.bs.modal", function(event){
+			var ventana = $("#winAddProducto");
+			var producto = jQuery.parseJSON(ventana.attr("datos"));
+			
+			$.each(producto, function(key, valor){
+				ventana.find("[campo=" + key + "]").val(valor);
+			});
+		});
+		
+		$("#winAddProducto").find(".addProducto").click(function(){
+			var producto = jQuery.parseJSON($("#winAddProducto").attr("datos"));
+			producto.cantidad = 1;
+			venta.add(producto);
+			$("#winAddProducto").modal("hide");
+			$(".paneles").hide();
+			$("#pnlVenta").show();
+			pintarVenta();
+		});
+		
 		nuevaVenta();
 	});
+	
+	
 	
 	function nuevaVenta(){
 		//var clienteDefault = jQuery.parseJSON($("#txtCliente").attr("jsonDefault"));
@@ -86,12 +109,18 @@ function panelVentas(){
 				var col = $("<div />", {
 					class: "col-xs-6 col-sm-4 text-center producto",
 					json: producto.json,
-					find: producto.codigoBarras + " " + producto.codigoInterno + " " + producto.descripcion
+					find: producto.codigoBarras + " " + producto.codigoInterno + " " + producto.descripcion,
+					"data-toggle": "modal",
+					"data-target": "#winAddProducto"
 				}).append($("<h3/>", {
 					text: producto.codigoBarras
 				})).append($("<div />", {
 					text: producto.descripcion
 				}));
+				
+				col.click(function(){
+					$("#winAddProducto").attr("datos", $(this).attr("json"));
+				});
 				$("#lstProductos").append(col);
 			})
 		}, "json");
@@ -113,17 +142,17 @@ function panelVentas(){
 				venta.productos[$(this).attr("indice")].cantidad = $(this).val();
 				
 				if($(this).val() <= venta.productos[$(this).attr("indice")].inventario){
-					$(this).parent().parent().find(".entregados").val($(this).val());
+					$(this).parent().parent().parent().find(".entregados").val($(this).val());
 					venta.productos[$(this).attr("indice")].entregado = $(this).val();
 				}else{
-					$(this).parent().parent().find(".entregados").val(venta.productos[$(this).attr("indice")].inventario);
+					$(this).parent().parent().parent().find(".entregados").val(venta.productos[$(this).attr("indice")].inventario);
 					venta.productos[$(this).attr("indice")].entregado = venta.productos[$(this).attr("indice")].inventario;
 				}
 				var producto = venta.productos[$(this).attr("indice")];
 				
 				$(".totalCantidad").html(venta.getTotalCantidad());
 				monto = (producto.cantidad * producto.precio * ((100 - producto.descuento) / 100)).toFixed(2);
-				$(this).parent().parent().find(".total").html(formatNumber.new(monto));
+				$(this).parent().parent().parent().find("[campo=total]").html("<b> $" + formatNumber.new(monto) + "</b>");
 				$(".totalEntregados").html(venta.getTotalEntregado());
 				calcularMonto();
 			}
@@ -145,14 +174,13 @@ function panelVentas(){
 				var producto = venta.productos[$(this).attr("indice")];
 					
 				monto = (producto.cantidad * producto.precio * ((100 - producto.descuento) / 100)).toFixed(2);
-				$(this).parent().parent().find(".total").html(formatNumber.new(monto));
+				$(this).parent().parent().parent().parent().find("[campo=total]").html("<b> $" + formatNumber.new(monto) + "</b>");
 				
 				calcularMonto();
 			}
 		});
 		
 		$("#dvProductos").find(".entregados").change(function(){
-			console.log($(this).val(), venta.productos[$(this).attr("indice")].inventario);
 			cantidad = parseInt($(this).val());
 			
 			if($(this).val() == '' || cantidad > venta.productos[$(this).attr("indice")].cantidad){
@@ -192,6 +220,6 @@ function panelVentas(){
 		*/
 		//calcularMonto();
 		
-		getListaPagos();
+		//getListaPagos();
 	}
 }

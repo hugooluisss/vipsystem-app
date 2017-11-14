@@ -8,14 +8,13 @@ TVenta = function(){
 	this.templateItem = "";
 	
 	$.get("vistas/ventas/item.tpl", function(plantilla){
-		this.templateItem = plantilla;
+		self.templateItem = plantilla;
 	});
 	
 	this.add = function(datos){
 		datos.cantidad = 1;
 		datos.entregado = 0;
 		var band = true;
-		console.log("Producto", datos);
 		$.each(self.productos, function(i, el){
 			if(el.idProducto == datos.idProducto){
 				self.productos[i].cantidad++;
@@ -53,12 +52,21 @@ TVenta = function(){
 			$(self.productos).each(function(){
 				producto = this;
 				producto.descuento = producto.descuento == ''?0:producto.descuento;
-				var item = $(this.templateItem);
+				var item = $(self.templateItem);
 				
 				$.each(producto, function(campo, valor){
 					item.find("[campo=" + campo + "]").val(valor);
 					item.find("[campo=" + campo + "]").text(valor);
 				});
+				
+				item.attr("identificador", producto.idProducto);
+				item.find(".cantidad").attr("indice", cont).attr("existencias", producto.existenciareales);
+				item.find("[campo=precio]").text("$ " + formatNumber.new(producto.precio));
+				item.find("[campo=descuento]").val(producto.descuento == 0?'':producto.descuento);
+				item.find("[campo=descuento]").attr("indice", cont);
+				item.find("[campo=total]").html("<b>$ " + formatNumber.new((producto.cantidad * producto.precio * ((100 - producto.descuento) / 100)).toFixed(2)) + "</b>");
+				item.find("[campo=cantidadEntregada]").val(producto.entregado);
+				item.find("[campo=cantidadEntregada]").attr("indice", cont);
 				
 				/*
 				var tr = $("<tr />").attr("identificador", producto.idProducto)
