@@ -69,7 +69,12 @@ function panelVentas(){
 			pintarVenta();
 		});
 		
+		$("#txtDescuento").change(function(){
+			calcularMonto();
+		});
+		
 		nuevaVenta();
+		reloadClientes();
 	});
 	
 	
@@ -116,6 +121,8 @@ function panelVentas(){
 					text: producto.codigoBarras
 				})).append($("<div />", {
 					text: producto.descripcion
+				})).append($("<div />", {
+					text: "$ " + producto.precio
 				}));
 				
 				col.click(function(){
@@ -205,21 +212,45 @@ function panelVentas(){
 				venta.del($(this).attr("indice"));
 				pintarVenta();
 			}
-		});
+		});		
+		calcularMonto();
+	}
+	
+	function calcularMonto(){
+		$("#dvSubtotal").html(formatNumber.new(venta.getTotalVenta()));
+		$("#dvProductos").find(".totalMonto").html(formatNumber.new(venta.getTotalVenta()));
 		
-		/*
-		$("#tblProductos").DataTable({
-			"responsive": true,
-			"language": espaniol,
-			"paging": false,
-			"lengthChange": false,
-			"ordering": true,
-			"info": true,
-			"autoWidth": false
+		var descuento = $("#txtDescuento").val() == ''?0:$("#txtDescuento").val();
+		descuento = (100 - descuento) / 100;
+		var total = (venta.getTotalVenta() * descuento).toFixed(2);
+		var totalPagos = $("#deuda").val() == '' || $("#deuda").val() == undefined?0.00:$("#deuda").val();
+		var saldo = (total - totalPagos).toFixed(2);
+		$("#dvTotal").html(formatNumber.new(total));
+		$("#dvTotalPagos").html(formatNumber.new(totalPagos));
+		$("#dvSaldo").html(formatNumber.new(saldo));
+	}
+	
+	
+	
+	
+	function reloadClientes(){
+		var ventana = $("#winClientes");
+		ventana.find(".moda-body").html('Estamos actualizando la lista de clientes <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>');
+		$.post(server + "listaClientes", {
+			"select": true,
+			"movil": 1,
+			"usuario": idUsuario
+		}, function( data ){
+			ventana.find(".modal-body").html(data);
+			
+			ventana.find("tbody").find("tr").click(function(){
+				var datos = jQuery.parseJSON($(this).attr("json"));
+				$("#txtCliente").attr("identificador", datos.idCliente);
+				$("#txtCliente").attr("email", datos.correo);
+				$("#txtCliente").val(datos.nombre);
+				ventana.modal("hide");
+				pintarVenta();
+			});
 		});
-		*/
-		//calcularMonto();
-		
-		//getListaPagos();
 	}
 }

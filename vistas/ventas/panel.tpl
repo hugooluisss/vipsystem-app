@@ -70,42 +70,43 @@
 	</div>
 	
 	<div class="box paneles" id="pnlPagar" style="display: none">
+		<br />
 		<div class="row">
-			<div class="col-xs-5 col-sm-3">
+			<div class="col-xs-6 col-sm-6">
 				<div class="input-group input-group-xs">
 					<span class="input-group-addon" id="sizing-addon2">Folio</span>
 					<input type="text" class="form-control" id="txtFolio" name="txtFolio" value="" readonly="true" title="Folio" />
 				</div>
 			</div>
-			<div class="col-xs-7 col-sm-3 col-sm-offset-6 text-right">
+			<div class="col-xs-6 col-sm-6 text-right">
 				<div class="input-group input-group-xs">
 					<span class="input-group-addon" id="sizing-addon2">Fecha</span>
 					<input type="date" class="form-control text-right" id="txtFecha" name="txtFecha" readonly="true" placerholder="Fecha" title="Fecha" value="2017-11-15"/>
 				</div>
 			</div>
 		</div>
-		
-		
+		<br />
 	
-	
-		<div class="input-group input-group-xs">
+		<div class="input-group">
 			<span class="input-group-addon" id="basic-addon1"><i class="fa fa-user-o" aria-hidden="true"></i></span>
 			<input class="form-control" id="txtCliente" name="txtCliente" placeholder="Cliente" value="" identificador="" jsonDefault='' readonly="true" disabled="true">
 			<span class="input-group-btn">
 				<button class="btn btn-primary" type="button" data-toggle="modal" data-target="#winClientes"><i class="fa fa-search" aria-hidden="true"></i></button>
 			</span>
-			<span class="input-group-btn">
-				<button class="btn btn-primary" type="button" id="setClienteDefecto">D</button>
-			</span>
-			<span class="input-group-btn">
-				<button class="btn btn-primary btn-xs btnNuevoCliente" data-toggle="modal" data-target="#winAddCliente"><i class="fa fa-plus" aria-hidden="true"></i></button>
-			</span>
 		</div>
-		
-		
-		<div class="alert alert-success">
+		<div class="btn-group btn-group-justified">
+			<div class="btn-group">	
+				<button class="btn btn-primary btn-block" type="button" id="setClienteDefecto">Cliente por default</button>
+			</div>
+			<div class="btn-group">
+				<button class="btn btn-primary btn-block btnNuevoCliente" data-toggle="modal" data-target="#winAddCliente"><i class="fa fa-plus" aria-hidden="true"></i> Registrar</button>
+			</div>
+		</div>
+		<br />
+		<div class="alert alert-primary" role="alert">
 			Comentarios
 			<textarea id="txtComentario" name="txtComentario" class="form-control" rows="5"></textarea>
+			<br />
 			<div class="row">
 				<div class="col-xs-6 col-sm-4">Subtotal</div>
 				<div class="col-xs-6 col-sm-8 text-right" id="dvSubtotal"></div>
@@ -136,7 +137,27 @@
 		<div class="text-center">
 			<button class="btn btn-primary" id="btnPagar">Registro de pagos</button>
 		</div>
-		
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="box">
+					<div class="box-body">
+						<div class="btn-group btn-group-justified">
+							<div class="btn-group">
+								<button class="btn btn-primary" id="btnGuardar">Guardar para despues / apartar</button>
+							</div>
+						</div>
+						<div class="btn-group btn-group-justified">
+							<div class="btn-group">
+								<button class="btn btn-danger" id="btnCancelar">Cancelar</button>
+							</div>
+							<div class="btn-group">
+								<button class="btn btn-success btnCerrar">Cerrar y enviar</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	
 	<div class="modal fade" id="winAddProducto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" datos="">
@@ -163,6 +184,15 @@
 						<label for="txtCodigo" class="col-xs-3 text-right">Barras</label>
 						<div class="col-xs-9">
 							<textarea readonly="true" disabled="true" campo="descripcion" class="form-control"></textarea>
+						</div>
+					</div>
+					<div class="row">
+						<label for="txtCodigo" class="col-xs-3 text-right">Precio</label>
+						<div class="col-xs-9">
+							<div class="input-group">
+								<span class="input-group-addon" id="basic-addon2">$</span>
+								<input class="form-control input-xs" campo="precio" disabled="true" readonly="true">
+							</div>
 						</div>
 					</div>
 					<hr />
