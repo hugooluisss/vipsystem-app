@@ -25,7 +25,7 @@ function setMenu(){
     	});
 	});
 	
-	panelVentas();
+	//panelVentas();
 }
 
 function setPrincipal(){

@@ -34,6 +34,9 @@
 					<div class="btn-group">
 						<button class="btn btn-warning" data-toggle="modal" data-target="#winVentas">Historial de ventas</button>
 					</div>
+					<div class="btn-group">
+						<a href="inicio.html" class="btn btn-warning">Menú principal</a>
+					</div>
 				</div>
 			</div>
 		</div>
