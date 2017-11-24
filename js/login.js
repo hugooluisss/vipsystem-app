@@ -56,7 +56,6 @@ var app = {
 			wrapper: 'span',
 			submitHandler: function(form){
 				var obj = new TUsuario;
-				
 				obj.login({
 					usuario: $("#txtUsuario").val(), 
 					pass: $("#txtPass").val(),
@@ -64,6 +63,7 @@ var app = {
 						$("#frmLogin [type=submit]").prop("disabled", true);
 					},
 					after: function(data){
+						console.log(data);
 						if (data.band == false || data.tipo == 1){
 							mensajes.alert({mensaje: "Tus datos no son válidos", title: "No se pudo iniciar sesión"});
 							$("#frmLogin [type=submit]").prop("disabled", false);

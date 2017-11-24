@@ -1,5 +1,5 @@
 server = "http://192.168.2.4/vip-web/";
-server = "http://192.168.0.3/vip-web/";
+server = "http://192.168.1.69/vip-web/";
 //server = "https://app.vipsystem.store/";
 var idUsuario = undefined;
 /*
@@ -96,7 +96,7 @@ function checkConnection() {
 	}catch(e){
 		return true;
 	}
-}
+};
 
 var mensajes = {
 	alert: function(data){
@@ -109,7 +109,7 @@ var mensajes = {
 		try{
 			navigator.notification.alert(data.mensaje, data.funcion, data.titulo, data.boton);
 		}catch(err){
-			alert(data.mensaje);
+			window.alert(data.mensaje);
 		}
 
 	},
@@ -131,4 +131,4 @@ var mensajes = {
 				data.funcion(2);
 		}
 	}
-}
+};
