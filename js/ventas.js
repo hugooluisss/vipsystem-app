@@ -3,13 +3,26 @@ var clientes = {};
 
 function panelVentas(){
 	var venta = new TVenta;
-	$(".menu1").hide("slow");
 	$.get("vistas/ventas/panel.tpl", function(resp){
 		$("#modulo").html(resp);
+		$("#txtFecha").datepicker({ dateFormat: 'yy-mm-dd' });
+		var today = new Date();
+		var dd = today.getDate();
+		var mm = today.getMonth()+1; //January is 0!
+		
+		var yyyy = today.getFullYear();
+		if(dd<10){
+		    dd='0'+dd;
+		} 
+		if(mm<10){
+		    mm='0'+mm;
+		} 
+		var today = yyyy+'-'+mm+'-'+dd;
+		$("#txtFecha").val(today);
+		
 		/*Gestion de botones del wizard*/
 		$("#wizard").find("button").click(function(){
 			$(".paneles").hide();
-			
 			$("#" + $(this).attr("panel")).show();
 		});
 		
@@ -75,6 +88,102 @@ function panelVentas(){
 		
 		nuevaVenta();
 		reloadClientes();
+		
+		
+		
+		
+		$("#frmAddProducto").validate({
+			debug: true,
+			rules: {
+				//txtCodigo: "required",
+				txtDescripcion: "required",
+				txtPrecio: {
+					required: true,
+					number: true,
+					min: 0
+				},
+			},
+			wrapper: 'span', 
+			submitHandler: function(form){
+				var obj = new TProducto;
+				obj.add({
+					"bazar": $("#selBazar").val(),
+					//"codigoInterno": $("#txtCodigo").val(), 
+					"descripcion": $("#txtDescripcion").val(),
+					"precio": $("#txtPrecio").val(),
+					"observacion": "Pedido",
+					"eliminar": true,
+					fn: {
+						after: function(datos){
+							if (datos.band){
+								$("#winNuevoProducto").modal("hide");
+								
+								var ventana = $("#frmAddProducto");
+								var producto = {};
+								producto.idProducto = datos.id;
+								producto.descripcion = ventana.find("#txtDescripcion").val();
+								producto.codigoInterno = ventana.find("#txtCodigo").val();
+								producto.precio = ventana.find("#txtPrecio").val();
+								producto.color = "";
+								producto.talla = "";
+								producto.descuento = 0;
+								producto.codigoBarras = "";
+								
+								$(".paneles").hide();
+								$("#pnlVenta").show();
+								venta.add(producto);
+								pintarVenta();
+							}else{
+								mensajes.alert({mensaje: "No se pudo guardar el registro", title: "Error"});
+							}
+						}
+					}
+				});
+			}
+		});
+		
+		$("#frmAddCliente").validate({
+			debug: true,
+			rules: {
+				txtNombre: "required"
+			},
+			wrapper: 'span', 
+			submitHandler: function(form){
+				var obj = new TCliente;
+				obj.add({
+					id: $("#id").val(), 
+					nombre: $("#txtNombre").val(), 
+					razonSocial: $("#txtRazonSocial").val(), 
+					domicilio: $("#txtDomicilio").val(), 
+					exterior: $("#txtExterior").val(), 
+					interior: $("#txtInterior").val(), 
+					colonia: $("#txtColonia").val(), 
+					municipio: $("#txtMunicipio").val(), 
+					ciudad: $("#txtCiudad").val(), 
+					estado: $("#txtEstado").val(), 
+					rfc: $("#txtRFC").val(), 
+					correo: $("#txtCorreo").val(), 
+					telefono: $("#txtTelefono").val(), 
+					promociones: $("#selPromociones").val(), 
+					fn: {
+						after: function(datos){
+							if (datos.band){
+								$("#txtCliente").attr("identificador", datos.id);
+								$("#txtCliente").attr("email", $("#txtCorreo").val());
+								$("#txtCliente").val($("#txtNombre").val());
+								
+								$("#frmAddCliente").get(0).reset();
+								$("#winAddCliente").modal("hide");
+								reloadClientes();
+							}else{
+								mensajes.alert({mensaje: "No se pudo guardar el registro", title: "Error"});
+							}
+						}
+					}
+				});
+	        }
+	
+	    });
 	});
 	
 	
@@ -112,7 +221,7 @@ function panelVentas(){
 			$("#lstProductos").html("");
 			$.each(productos, function(i, producto){
 				var col = $("<div />", {
-					class: "col-xs-6 col-sm-4 text-center producto",
+					class: "col-xs-4 col-sm-3 text-center producto",
 					json: producto.json,
 					find: producto.codigoBarras + " " + producto.codigoInterno + " " + producto.descripcion,
 					"data-toggle": "modal",
@@ -143,7 +252,7 @@ function panelVentas(){
 		
 		$("#dvProductos").find(".cantidad").change(function(){
 			if ($(this).val() == ''){
-				alert("Debe de ser un número");
+				mensajes.alert({mensaje: "La cantidad debe de ser un número", title: "Corrige lo siguiente"});
 				$(this).val(venta.productos[$(this).attr("indice")].cantidad);
 			}else{
 				venta.productos[$(this).attr("indice")].cantidad = $(this).val();
@@ -167,10 +276,10 @@ function panelVentas(){
 		
 		$("#dvProductos").find(".descuento").change(function(){
 			if ($(this).val() < 0){
-				alert("Debe de ser mayor a 0");
+				mensajes.alert({mensaje: "El descuento debe de ser mayor a 0", title: "Corrige lo siguiente"});
 				$(this).val(venta.productos[$(this).attr("indice")].descuento);
 			}else if ($(this).val() > 100){
-				alert("Debe de ser menor o igual a 100");
+				mensajes.alert({mensaje: "El descuento debe de ser menor o igual a 100", title: "Corrige lo siguiente"});
 				$(this).val(venta.productos[$(this).attr("indice")].descuento);
 			}else{
 				var descuento = $(this).val();
@@ -191,7 +300,7 @@ function panelVentas(){
 			cantidad = parseInt($(this).val());
 			
 			if($(this).val() == '' || cantidad > venta.productos[$(this).attr("indice")].cantidad){
-				alert("No puede ser 0 ni menor a la cantidad vendida");
+				mensajes.alert({mensaje: "Los productos entregados no pueden ser 0 ni menores a la cantidad vendida", title: "Corrige lo siguiente"});
 				
 				$(this).val(venta.productos[$(this).attr("indice")].entregado);
 			}else if(cantidad > venta.productos[$(this).attr("indice")].inventario){
@@ -253,4 +362,9 @@ function panelVentas(){
 			});
 		});
 	}
+	
+	
+	
+	
+	
 }

@@ -1,12 +1,5 @@
 <div id="panelVenta">
-	<nav id="header" class="navbar navbar-default navbar-fixed-top">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<div class="text-center">
-					Nota de venta
-				</div>
-			</div>
-		</div>
+	<div id="header" class="navbar navbar-default navbar-fixed-top">
 		<ul id="wizard">
 			<li>
 				<button class="btn btn-primary" panel="pnlVenta">Nota</button>
@@ -34,13 +27,10 @@
 					<div class="btn-group">
 						<button class="btn btn-warning" data-toggle="modal" data-target="#winVentas">Historial de ventas</button>
 					</div>
-					<div class="btn-group">
-						<a href="inicio.html" class="btn btn-warning">Menú principal</a>
-					</div>
 				</div>
 			</div>
 		</div>
-	</nav>
+	</div>
 	
 	
 	<div class="box paneles" id="pnlVenta">
@@ -52,7 +42,7 @@
 	</div>
 	
 	<div class="box paneles" id="pnlProductos" style="display: none">
-		<div class="row">
+		<div class="row dvFiltro">
 			<div class="col-xs-12">
 				<form class="form-horizontal" id="frmFiltro">
 					<div class="input-group">
@@ -60,7 +50,7 @@
 							<i class="fa fa-search" aria-hidden="true"></i>
 						</span>
 						<input id="txtFiltro" placeholder="Búsqueda rápida" class="form-control">
-						<span class="input-group-addon">
+						<span class="input-group-addon" data-toggle="modal" data-target="#winNuevoProducto">
 							<i class="fa fa-plus" aria-hidden="true"></i>
 						</span>
 					</div>
@@ -84,7 +74,7 @@
 			<div class="col-xs-6 col-sm-6 text-right">
 				<div class="input-group input-group-xs">
 					<span class="input-group-addon" id="sizing-addon2">Fecha</span>
-					<input type="date" class="form-control text-right" id="txtFecha" name="txtFecha" readonly="true" placerholder="Fecha" title="Fecha" value="2017-11-15"/>
+					<input type="text" class="form-control text-right" id="txtFecha" name="txtFecha" readonly="true" placerholder="Fecha" title="Fecha" value="2017-11-15"/>
 				</div>
 			</div>
 		</div>
@@ -96,13 +86,13 @@
 			<span class="input-group-btn">
 				<button class="btn btn-primary" type="button" data-toggle="modal" data-target="#winClientes"><i class="fa fa-search" aria-hidden="true"></i></button>
 			</span>
+			<span class="input-group-btn">
+				<button class="btn btn-primary" type="button" data-toggle="modal" data-target="#winAddCliente"><i class="fa fa-plus" aria-hidden="true"></i></button>
+			</span>
 		</div>
 		<div class="btn-group btn-group-justified">
 			<div class="btn-group">	
 				<button class="btn btn-primary btn-block" type="button" id="setClienteDefecto">Cliente por default</button>
-			</div>
-			<div class="btn-group">
-				<button class="btn btn-primary btn-block btnNuevoCliente" data-toggle="modal" data-target="#winAddCliente"><i class="fa fa-plus" aria-hidden="true"></i> Registrar</button>
 			</div>
 		</div>
 		<br />
@@ -308,25 +298,98 @@
 		</div>
 	</div>
 	
-	<div class="modal fade" id="winAddCliente" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		<div class="modal-dialog modal-lg" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title">Registrar cliente</h4>
-				</div>
-				<div class="modal-body">
-					<form role="form" id="frmAddCliente" class="form-horizontal" onsubmit="javascript: return false;">
-						
-						<button type="reset" id="btnReset" class="btn btn-default">Cancelar</button>
-						<button type="submit" class="btn btn-info pull-right">Guardar</button>
+	<form role="form" id="frmAddCliente" class="form-horizontal" onsubmit="javascript: return false;">
+		<div class="modal fade" id="winAddCliente" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Registrar cliente</h4>
+					</div>
+					<div class="modal-body" style="max-height: 500px;">					
+						<div class="form-group">
+							<label class="col-xs-2 text-right" for="txtNombre">Nombre</label>
+							<div class="col-xs-10">
+								<input class="form-control input-sm" id="txtNombre" name="txtNombre" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-xs-2 text-right" for="txtRazonSocial">Razón social</label>
+							<div class="col-xs-10">
+								<input class="form-control input-sm" id="txtRazonSocial" name="txtRazonSocial" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-xs-2 text-right" for="txtDomicilio">Domicilio</label>
+							<div class="col-xs-10">
+								<input class="form-control input-sm" id="txtDomicilio" name="txtDomicilio" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-xs-2 text-right" for="txtExterior">#ext</label>
+							<div class="col-xs-4">
+								<input class="form-control input-sm" id="txtExterior" name="txtExterior" />
+							</div>
+							<label class="col-xs-2 text-right" for="txtInterior">#int</label>
+							<div class="col-xs-4">
+								<input class="form-control input-sm" id="txtInterior" name="txtInterior" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-xs-2 text-right" for="txtColonia">Colonia</label>
+							<div class="col-xs-4">
+								<input class="form-control input-sm" id="txtColonia" name="txtColonia" />
+							</div>
+							<label class="col-xs-2 text-right" for="txtMunicipio">Municipio</label>
+							<div class="col-xs-4">
+								<input class="form-control input-sm" id="txtMunicipio" name="txtMunicipio" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-xs-2 text-right" for="txtCiudad">Ciudad</label>
+							<div class="col-xs-4">
+								<input class="form-control input-sm" id="txtCiudad" name="txtCiudad" />
+							</div>
+							<label class="col-xs-2 text-right" for="txtEstado">Estado</label>
+							<div class="col-xs-4">
+								<input class="form-control input-sm" id="txtEstado" name="txtEstado" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-xs-2 text-right" for="txtRFC">RFC</label>
+							<div class="col-xs-8">
+								<input class="form-control input-sm" id="txtRFC" name="txtRFC" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-xs-2 text-right" for="txtTelefono">Teléfono</label>
+							<div class="col-xs-8">
+								<input class="form-control input-sm" id="txtTelefono" name="txtTelefono" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-xs-2 text-right" for="txtCorreo">Correo</label>
+							<div class="col-xs-4">
+								<input class="form-control input-sm" id="txtCorreo" name="txtCorreo" />
+							</div>
+							<label class="col-xs-2 text-right" for="txtTelefono">¿Desea recibir promociones?</label>
+							<div class="col-xs-4">
+								<select id="selPromociones" name="selPromociones" class="form-control">
+									<option value="0">No</option>
+									<option value="1">Si</option>
+								</select>
+							</div>
+						</div>
 						<input type="hidden" id="id"/>
-					</form>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary">Guardar</button>
+						<button type="reset" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	
+	</form>
 	
 	
 	

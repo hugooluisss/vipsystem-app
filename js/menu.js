@@ -3,8 +3,8 @@ function setMenu(){
 		$("#nav").toggleClass("closed");
 	});
 
-	$(".menu1 .salir").find("a[role=button]").click(function(){
-		$("#menuPrincipal").removeClass("in").prop("aria-expanded", "true");
+	$(".menu1").find("a").click(function(){
+		$(".menu1").find("#navbarNav").removeClass("in").prop("aria-expanded", "true");
 	});
 	
 	$(".menu1").find(".venta").click(function(){
@@ -25,7 +25,7 @@ function setMenu(){
     	});
 	});
 	
-	//panelVentas();
+	panelVentas();
 }
 
 function setPrincipal(){

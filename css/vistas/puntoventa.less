@@ -1,6 +1,19 @@
 #panelVenta{
+	#header{
+		@media (max-width: @mq-xs-max){
+			margin-top: 50px;
+		}
+		
+		margin-top: 95px;
+		z-index: -1;
+		
+	}
+	
 	.paneles{
-		margin-top: 123px;
+		top: 150px;
+		position: absolute;
+		width: 100%;
+		z-index: -2;
 	}
 	
 	.box{
@@ -8,12 +21,21 @@
 			margin-right: 0px;
 			margin-left: 0px;
 			
-			.col-xs-12{
-				padding-left: 0px;
-				padding-right: 0px;
+			.item{
+				border: 1px solid @color1 - #aaa;
+				padding-top: 5px;
+				padding-bottom: 5px;
+				background: @color1;
+				color: white;
+				
+				[campo=descripcion]{
+					font-weight: bold;
+					margin-bottom: 5px;
+				}
 			}
 		}
 	}
+	
 	nav{
 		margin-bottom: 0px;
 	}
@@ -51,6 +73,10 @@
 	
 	#lstProductos{
 		font-size: arial;
+		padding-left: 5px;
+		padding-right: 5px;
+		padding-top: 5px;
+		padding-bottom: 5px;
 		.producto{
 			padding: 5px 5px 5px 5px;
 			font-size: 14px;
@@ -58,4 +84,12 @@
 			border: 1px solid @color1;
 		}
 	}
+	
+	.dvFiltro{
+		.col-xs-12{
+			padding-left: 0px;
+			padding-right: 0px;
+		}
+	}
+
 }

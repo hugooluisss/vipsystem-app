@@ -41,7 +41,7 @@
 		<title>VIPSystem</title>
 	</head>
 	<body id="home">
-		<nav class="menu1 navbar navbar-default navbar-primary">
+		<nav class="menu1 navbar navbar-default navbar-primary navbar-fixed-top">
 			<div class="container-fluid">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarNav">
@@ -53,22 +53,30 @@
 				<div class="collapse navbar-collapse menu1" id="navbarNav">
 					<ul class="navbar-nav">
 						<li>
-							<a class="" href="inicio.html">Dashboard <span class="sr-only">(current)</span></a>
+							<a class="" href="inicio.html">
+								<i class="fa fa-tachometer fa-2x" aria-hidden="true"></i>
+								<br class="visible-xs" />
+								Dashboard <span class="sr-only">(current)</span>
+							</a>
 						</li>
 						<li>
 							<a class="nav-item nav-link venta" href="#" title="Ventas">
-								<i class="fa fa-money" aria-hidden="true"></i>
-								<br />
+								<i class="fa fa-usd fa-2x" aria-hidden="true"></i>
+								<br class="visible-xs" />
 								Ventas
 							</a>
 						</li>
 						<li>
-							<a class="nav-item nav-link productos" href="#" title="Productos">Productos</a>
+							<a class="nav-item nav-link productos" href="#" title="Productos">
+								<i class="fa fa-shopping-bag fa-2x" aria-hidden="true"></i>
+								<br class="visible-xs" />
+								Productos
+							</a>
 						</li>
 						<li>
-							<a class="nav-item nav-link disabled" href="#" title="Salir">
-								<i class="fa fa-sign-out" aria-hidden="true"></i>
-								<br />
+							<a class="nav-item nav-link salir" href="#" title="Salir">
+								<i class="fa fa-sign-out fa-2x" aria-hidden="true"></i>
+								<br class="visible-xs" />
 								Salir
 							</a>
 						</li>
@@ -89,15 +97,6 @@
 		-->
   		<div id="modulo">
 		</div>
-		<footer>
-			<div class="navbar navbar-fixed-bottom">
-				<div class="row">
-					<div class="col-xs-12 text-center">
-						VIP System
-					</div>
-				</div>
-			</div>
-		</footer>
 		
 		<script src="librerias/jquery.js" type="text/javascript"></script>
 		<link rel="stylesheet" href="librerias/plugins/jQueryUI/jquery-ui.css" />
@@ -123,6 +122,8 @@
 		
 		<script type="text/javascript" src="js/modelo/bazar.class.js"></script>
 		<script type="text/javascript" src="js/modelo/venta.class.js"></script>
+		<script type="text/javascript" src="js/modelo/producto.class.js"></script>
+		<script type="text/javascript" src="js/modelo/cliente.class.js"></script>
 		
 		<script type="text/javascript" src="js/ventas.js"></script>
 	</body>

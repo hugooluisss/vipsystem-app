@@ -1,5 +1,6 @@
 .navbar-primary{
 	background: @color1;
+	border: none;
 	
 	.container-fluid{
 		a{
@@ -20,20 +21,34 @@
 		padding-left: 0px;
 		padding-right: 0px;
 		padding-inline-start: 0px;
+		width: 100%;
 	}
 	
 	.navbar-collapse{
-		
+		z-index: 1000;
 		&.collapse, &.collapsing{
 			ul.navbar-nav{
 				list-style: none;
 				li{
-					float: left;
-					width: 50%;
+					@media (max-width: @mq-xs-max){
+						float: left;
+						width: 50%;
+						height: 80px;
+					}
+					
+					margin-left: 10px;
+					margin-right: 10px;
+					padding-top: 10px;
+					padding-bottom: 5px;
+					width: 22%;
 					text-align: center;
-					height: 50px;
+					
 					a{
 						color: white;
+					}
+					
+					&:hover{
+						background: @color2;
 					}
 				}
 			}
