@@ -619,32 +619,28 @@ function panelVentas(){
 		
 		$("#btnGetBarcode").click(function(){
 			cordova.plugins.barcodeScanner.scan(function(result){
-				cordova.plugins.barcodeScanner.scan(function(result){
-					var producto = new TProducto;
-					producto.get({
-						"codigo": result.text,
-						"bazar": $("#selBazar").val(),
-						fn: {
-							before: function(){
-								$(this).prop("disabled", true);
-							}, after: function(producto){
-								$(this).prop("disabled", false);
-								$("#txtProducto").val("");
-								
-								if (producto.band == false){
-									alert("Código no encontrado");
-									$("#winNuevoProducto").modal();
-								}else{
-									venta.add(producto);
-									pintarVenta();
-								}
-								
-								return false;
+				var producto = new TProducto;
+				producto.get({
+					"codigo": result.text,
+					"bazar": $("#selBazar").val(),
+					fn: {
+						before: function(){
+							$(this).prop("disabled", true);
+						}, after: function(producto){
+							$(this).prop("disabled", false);
+							$("#txtProducto").val("");
+							
+							if (producto.band == false){
+								alert("Código no encontrado");
+								$("#winNuevoProducto").modal();
+							}else{
+								venta.add(producto);
+								pintarVenta();
 							}
+							
+							return false;
 						}
-					});
-				},function(error){
-					alertify.error("Ocurrió un error al leer el código");
+					}
 				});
 			},function(error){
 				alertify.error("Ocurrió un error al leer el código");
