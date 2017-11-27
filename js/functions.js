@@ -1,5 +1,6 @@
 server = "http://192.168.2.4/vip-web/";
-server = "http://192.168.0.3/vip-web/";
+//server = "http://192.168.0.3/vip-web/";
+//server = "http://192.168.1.69/vip-web/";
 //server = "https://app.vipsystem.store/";
 var idUsuario = undefined;
 /*
@@ -45,7 +46,7 @@ function jsShowWindowLoad(mensaje) {
     var heightdivsito = alto/2 - parseInt(height)/2;//Se utiliza en el margen superior, para centrar
  
    //imagen que aparece mientras nuestro div es mostrado y da apariencia de cargando
-    imgCentro = "<div style='text-align:center;height:" + alto + "px;'><div  style='margin-top:" + heightdivsito + "px; font-size:20px;font-weight:bold'><img style='max-width: 150px;' src='img/logo-mini.png'><br />" + mensaje + "</div><i class='fa fa-circle-o-notch fa-spin fa-3x fa-fw'></i></div>";
+    imgCentro = "<div style='text-align:center;height:" + alto + "px;'><div  style='margin-top:" + heightdivsito + "px; font-size:20px;font-weight:bold'><img style='max-width: 150px;' src='img/logo.png'><br />" + mensaje + "</div><i class='fa fa-circle-o-notch fa-spin fa-3x fa-fw'></i></div>";
  
         //creamos el div que bloquea grande------------------------------------------
         div = document.createElement("div");
@@ -130,5 +131,28 @@ var mensajes = {
 			else
 				data.funcion(2);
 		}
-	}
+	},
+	
+	log: function(data){
+		alertify.log(data.mensaje);
+	},
+	
+	prompt: function(data){
+		if (data.funcion == undefined)
+			data.funcion = function(){};
+			
+		if (data.titulo == undefined)
+			data.titulo = " ";
+		
+		
+		try{
+			navigator.notification.prompt(data.mensaje, data.funcion, data.titulo, data.botones);
+		}catch(err){
+			var result = prompt(data.mensaje);
+			data.funcion({
+				buttonIndex: 1,
+				input1: result
+			});
+		}
+	},
 };

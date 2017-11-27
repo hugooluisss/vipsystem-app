@@ -10,7 +10,10 @@
 	}
 	
 	.paneles{
-		top: 150px;
+		@media (max-width: @mq-xs-max){
+			top: 150px;
+		}
+		top: 191px;
 		position: absolute;
 		width: 100%;
 		z-index: -2;

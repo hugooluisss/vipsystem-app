@@ -19,7 +19,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-xs-12 col-sm-8">
+			<div class="col-xs-12">
 				<div class="btn-group btn-group-justified">
 					<div class="btn-group">
 						<button class="btn btn-primary btnNuevaVenta">Nueva venta</button>
@@ -89,11 +89,9 @@
 			<span class="input-group-btn">
 				<button class="btn btn-primary" type="button" data-toggle="modal" data-target="#winAddCliente"><i class="fa fa-plus" aria-hidden="true"></i></button>
 			</span>
-		</div>
-		<div class="btn-group btn-group-justified">
-			<div class="btn-group">	
-				<button class="btn btn-primary btn-block" type="button" id="setClienteDefecto">Cliente por default</button>
-			</div>
+			<span class="input-group-btn">
+				<button class="btn btn-primary" type="button" id="setClienteDefecto">D</button>
+			</span>
 		</div>
 		<br />
 		<div class="alert alert-primary" role="alert">
@@ -122,13 +120,20 @@
 				<div class="col-xs-6 col-sm-4">Saldo</div>
 				<div class="col-xs-6 col-sm-8 text-right" id="dvSaldo"></div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-xs-12" id="dvPagos">
+			<div class="row">
+				<div class="col-xs-6 col-xs-offset-6 col-sm-4 col-sm-offset-8 text-right">
+					<div class="btn-group btn-group-justified">
+						<div class="btn-group">
+							<button class="btn btn-primary" id="btnPagar" data-toggle="modal" data-target="#winPago">Registrar pago</button>
+						</div>
+					</div>
+				</div>
 			</div>
-		</div>
-		<div class="text-center">
-			<button class="btn btn-primary" id="btnPagar">Registro de pagos</button>
+			<br />
+			<div class="row">
+				<div class="col-xs-12" id="dvPagos">
+				</div>
+			</div>
 		</div>
 		<div class="row">
 			<div class="col-sm-12">
@@ -459,7 +464,7 @@
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4 class="modal-title">Historial de ventas</h4>
 				</div>
-				<div class="modal-body">
+				<div class="modal-body" style="overflow-x: scroll">
 				</div>
 			</div>
 		</div>
