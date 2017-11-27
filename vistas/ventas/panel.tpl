@@ -5,7 +5,7 @@
 				<button class="btn btn-primary" panel="pnlVenta">Nota</button>
 			</li>
 			<li>
-				<button class="btn btn-primary" panel="pnlProductos">Productos</button>
+				<button class="btn btn-primary" panel="pnlProductos">Agregar producto</button>
 			</li>
 			<li>
 				<button class="btn btn-primary" panel="pnlPagar">Pagar</button>
@@ -52,6 +52,9 @@
 						<input id="txtFiltro" placeholder="Búsqueda rápida" class="form-control">
 						<span class="input-group-addon" data-toggle="modal" data-target="#winNuevoProducto">
 							<i class="fa fa-plus" aria-hidden="true"></i>
+						</span>
+						<span class="input-group-addon" id="btnGetBarcode">
+							<i class="fa fa-barcode" aria-hidden="true"></i>
 						</span>
 					</div>
 				</form>

@@ -45,7 +45,7 @@ TVenta = function(){
 		plantilla = $("<div />");
 		if (self.productos.length == 0){
 			plantilla = $("<div />", {
-				text: "Sin productos en la venta"
+				html: '<br /> <br /><center><i class="fa fa-cart-plus fa-5x" aria-hidden="true"></i><br />Aun no hay productos agregados</center>'
 			});
 			console.log("Sin productos");
 		}else{
