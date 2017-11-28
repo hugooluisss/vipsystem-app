@@ -41,7 +41,16 @@
 		<!-- A list of available plugins are available at https://build.phonegap.com/plugins -->  
 
 		<plugin name="cordova-plugin-camera" source="npm"/>
-		<plugin name="cordova-plugin-barcodescanner" source="npm" />
+		<!--<plugin name="cordova-plugin-barcodescanner" source="npm" />-->
+		<plugin name="cordova-plugin-barcodescanner" spec="0.7.0">
+			<variable name="CAMERA_USAGE_DESCRIPTION" value="This app requires access to the camera to scan the App URL."/>
+		</plugin>
+		
+		<config-file mode="merge" parent="/*" target="AndroidManifest.xml">
+			<uses-permission android:name="android.permission.CAMERA" />
+			<uses-feature android:name="android.hardware.camera" />
+			<uses-feature android:name="android.hardware.camera.autofocus" />
+		</config-file>
 		
 		<plugin name="cordova-plugin-file" spec="~4.3.1" source="npm"/>
 		<plugin name="cordova-plugin-file-transfer" spec="~1.6.1" source="npm"/>
