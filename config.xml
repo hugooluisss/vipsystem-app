@@ -42,12 +42,13 @@
 
 		<!--<plugin name="cordova-plugin-barcodescanner" source="npm" />-->
 		<plugin name="cordova-plugin-barcodescanner@0.7.1" source="npm" />
+		<plugin name="cordova-plugin-camera" source="npm"/>
 		<config-file mode="merge" parent="/*" target="AndroidManifest.xml">
 			<uses-permission android:name="android.permission.CAMERA" xmlns:android="http://schemas.android.com/apk/res/android" />
 			<uses-feature android:name="android.hardware.camera" xmlns:android="http://schemas.android.com/apk/res/android" />
 			<uses-feature android:name="android.hardware.camera.autofocus" xmlns:android="http://schemas.android.com/apk/res/android" />
 		</config-file>
-		<plugin name="cordova-plugin-camera" source="npm"/>
+		
 		<plugin name="cordova-plugin-file" spec="~4.3.1" source="npm"/>
 		<plugin name="cordova-plugin-file-transfer" spec="~1.6.1" source="npm"/>
 		<plugin name="cordova-plugin-media-capture" source="npm"/>
