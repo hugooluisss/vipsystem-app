@@ -48,7 +48,7 @@
 			<uses-feature android:name="android.hardware.camera" xmlns:android="http://schemas.android.com/apk/res/android" />
 			<uses-feature android:name="android.hardware.camera.autofocus" xmlns:android="http://schemas.android.com/apk/res/android" />
 			
-	        <uses-sdk android:maxSdkVersion="22" android:minSdkVersion="10" android:targetSdkVersion="21" />
+	        <uses-sdk android:maxSdkVersion="22" android:minSdkVersion="14" android:targetSdkVersion="21" />
 
 		</config-file>
 		
