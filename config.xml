@@ -40,7 +40,7 @@
 		<!-- Third party plugins -->  
 		<!-- A list of available plugins are available at https://build.phonegap.com/plugins -->  
 
-		<!--<plugin name="cordova-plugin-barcodescanner" source="npm" />-->
+		<plugin name="cordova-plugin-barcodescanner" source="npm" />
 		<plugin name="cordova-plugin-camera" source="npm"/>
 		<plugin name="cordova-plugin-file" spec="~4.3.1" source="npm"/>
 		<plugin name="cordova-plugin-file-transfer" spec="~1.6.1" source="npm"/>
