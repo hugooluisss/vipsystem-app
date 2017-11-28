@@ -478,7 +478,6 @@ function panelVentas(){
 		});
 		
 		$("#btnGetBarcode").click(function(){
-			cordova.plugins.barcodeScanner.requestCameraPermission();
 			cordova.plugins.barcodeScanner.scan(function(result){
 				var producto = new TProducto;
 				producto.get({
