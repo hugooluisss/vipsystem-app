@@ -49,8 +49,7 @@
 			<uses-permission android:name="android.permission.CAMERA" xmlns:android="http://schemas.android.com/apk/res/android" />
 			<uses-feature android:name="android.hardware.camera" xmlns:android="http://schemas.android.com/apk/res/android" />
 			<uses-feature android:name="android.hardware.camera.autofocus" xmlns:android="http://schemas.android.com/apk/res/android" />
-			
-	        <uses-sdk android:maxSdkVersion="22" android:minSdkVersion="14" android:targetSdkVersion="21" />
+	        <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
 		</config-file>
 		
