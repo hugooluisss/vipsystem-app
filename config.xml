@@ -27,7 +27,9 @@
 		<preference name="show-splash-screen-spinner" value="true" />      <!-- ios: if set to false, the spinner won't appear on the splash screen during app loading -->  
 		<preference name="auto-hide-splash-screen"  value="true" />      <!-- ios: if set to false, the splash screen must be hidden using a JavaScript API -->  
 		<preference name="disable-cursor"       value="false" />     <!-- blackberry: prevents a mouse-icon/cursor from being displayed on the app -->  
-		<preference name="android-minSdkVersion"   value="14" />       <!-- android: MIN SDK version supported on the target device. MAX version is blank by default. -->  
+		<preference name="android-minSdkVersion"   value="10" />       <!-- android: MIN SDK version supported on the target device. MAX version is blank by default. -->  
+		<preference name="android-maxSdkVersion" value="22" />
+		<preference name="android-targetSdkVersion" value="21" />
 		<preference name="android-installLocation"  value="auto" />      <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->  
 		<preference name="android-build-tool" value="gradle" />
 		<preference name="LoadUrlTimeoutValue" value="70000"/>
@@ -45,6 +47,9 @@
 			<uses-permission android:name="android.permission.CAMERA" xmlns:android="http://schemas.android.com/apk/res/android" />
 			<uses-feature android:name="android.hardware.camera" xmlns:android="http://schemas.android.com/apk/res/android" />
 			<uses-feature android:name="android.hardware.camera.autofocus" xmlns:android="http://schemas.android.com/apk/res/android" />
+			
+	        <uses-sdk android:maxSdkVersion="22" android:minSdkVersion="10" android:targetSdkVersion="21" />
+
 		</config-file>
 		
 		<plugin name="cordova-plugin-file" spec="~4.3.1" source="npm"/>
