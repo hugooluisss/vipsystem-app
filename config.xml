@@ -17,7 +17,7 @@
 		<preference name="phonegap-version"      value="cli-6.3.0" />     <!-- all: current version of PhoneGap -->  
 		<preference name="orientation"        value="default" />    <!-- all: default means both landscape and portrait are enabled -->  
 		<preference name="target-device"       value="universal" />   <!-- all: possible values handset, tablet, or universal -->  
-		<preference name="fullscreen"         value="false" />      <!-- all: hides the status bar at the top of the screen -->  
+		<preference name="fullscreen"         value="true" />      <!-- all: hides the status bar at the top of the screen -->  
 		<preference name="webviewbounce"       value="true" />      <!-- ios: control whether the screen 'bounces' when scrolled beyond the top -->  
 		<preference name="prerendered-icon"      value="true" />      <!-- ios: if icon is prerendered, iOS will not apply it's gloss to the app's icon on the user's home screen -->  
 		<preference name="stay-in-webview"      value="false" />     <!-- ios: external links should open in the default browser, 'true' would use the webview the app lives in -->  
@@ -32,7 +32,7 @@
 		<preference name="android-build-tool" value="gradle" />
 		<preference name="LoadUrlTimeoutValue" value="70000"/>
 		<preference name="android-windowSoftInputMode" value="stateVisible|adjustResize"/>
-		
+		<preference name="android-build-tool" value="gradle" />.
 		<!--<preference name="android-build-tool" value="gradle" />-->
 
 		<!-- Plugins -->  
@@ -51,7 +51,7 @@
 		<!--<plugin name="cordova-plugin-geolocation" source="npm"/>-->
 		
 		<plugin name="cordova-plugin-network-information" source="npm"/>
-		<plugin name="cordova-plugin-sqlite" source="npm"/>
+		<!--<plugin name="cordova-plugin-sqlite" source="npm"/>-->
 		<plugin name="cordova-plugin-device" source="npm"/>
 		<!--<plugin name="cordova-plugin-whitelist" source="npm"/>-->
 		<plugin name="cordova-plugin-whitelist" version="1" />
