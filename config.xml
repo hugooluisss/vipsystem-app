@@ -47,7 +47,7 @@
 		<plugin name="cordova-plugin-media-capture" source="npm"/>
 		<plugin name="cordova-plugin-dialogs" source="npm"/>
 		<!-- add a version here, otherwise PGB will use whatever the latest version of the package on npm is -->
-		<plugin name="cordova-plugin-barcodescanner"></plugin>
+		<plugin name="phonegap-plugin-barcodescanner"></plugin>
 		
 		<!--<plugin name="cordova-plugin-geolocation" source="npm"/>-->
 		
