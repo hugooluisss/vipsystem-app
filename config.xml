@@ -46,7 +46,7 @@
 		<plugin name="cordova-plugin-barcodescanner@next" source="npm">
 			<param name="CAMERA_USAGE_DESCRIPTION" value="To scan barcodes." />
 		</plugin>
-		<plugin name="cordova-plugin-camera@latest" source="npm"/>
+		<plugin name="cordova-plugin-camera" source="npm" spec="2.4.1"/>
 		<config-file mode="merge" parent="/*" target="AndroidManifest.xml">
 			<uses-permission android:name="android.permission.CAMERA" xmlns:android="http://schemas.android.com/apk/res/android" />
 			<uses-feature android:name="android.hardware.camera" xmlns:android="http://schemas.android.com/apk/res/android" />
