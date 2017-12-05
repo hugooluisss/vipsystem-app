@@ -92,6 +92,23 @@ function panelVentas(){
 					$("#selMetodoCobro").append('<option value="' + el.idMetodoCobro + '">' + el.destino + '</option>');
 				});
 			});
+			
+			/*Proceso de pagos y guardar*/
+			$("#btnPagar").click(function(){
+				guardar({
+					before: function(){
+						$("#btnGuardar").prop("disabled", true);
+				    	$("#btnPagar").prop("disabled", true);
+				    },
+				    after: function(resp){
+				    	$("#btnGuardar").prop("disabled", false);
+				    	$("#btnPagar").prop("disabled", false);
+					    $("#winPago").modal();
+				    }
+				});
+			});
+			
+	
 			jsRemoveWindowLoad();
 		}, "json");
 		
