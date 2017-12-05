@@ -12,12 +12,12 @@
 			following tag to your config.xml; you will still have the INTERNET  
 			permission on your app, which PhoneGap requires.  
 		-->
-		<meta http-equiv="Content-Security-Policy" content="default-src * gap: file:; style-src 'self' 'unsafe-inline'; img-src 'self' data: gap:; script-src * 'unsafe-inline' 'unsafe-eval'">
 
 
 		<preference name="permissions"        value="none"/>  
 		<!-- Customize your app and platform with the preference element. -->  
 		<preference name="phonegap-version"      value="cli-7.0.1" />     <!-- all: current version of PhoneGap -->  
+		<preference name='pgb-builder-version' value='1' />
 		<preference name="orientation"        value="default" />    <!-- all: default means both landscape and portrait are enabled -->  
 		<preference name="target-device"       value="universal" />   <!-- all: possible values handset, tablet, or universal -->  
 		<preference name="fullscreen"         value="false" />      <!-- all: hides the status bar at the top of the screen -->  
@@ -48,9 +48,12 @@
 		<plugin name="cordova.plugins.diagnostic" source="npm" />
 		<plugin name="cordova-plugin-camera" source="npm" spec="2.4.1"/>
 		
-		<plugin name="phonegap-plugin-barcodescanner">
-			<param name="CAMERA_USAGE_DESCRIPTION" value="To scan barcodes." />
-		</plugin>
+		<plugin name="phonegap-plugin-barcodescanner" source="npm" />
+		
+		
+	    <feature name="http://api.phonegap.com/1.0/camera"/>
+
+
 		<!--
 		<platform name="android">
 			<config-file target="AndroidManifest.xml" parent="/manifest">
