@@ -45,7 +45,9 @@
 		<plugin name="cordova.plugins.diagnostic" source="npm" />
 		<plugin name="cordova-plugin-camera" source="npm" spec="2.4.1"/>
 		
-		<plugin name="cordova-plugin-barcodescanner@next" source="npm" />
+		<plugin name="phonegap-plugin-barcodescanner">
+			<param name="CAMERA_USAGE_DESCRIPTION" value="To scan barcodes." />
+		</plugin>
 		<!--
 		<platform name="android">
 			<config-file target="AndroidManifest.xml" parent="/manifest">
