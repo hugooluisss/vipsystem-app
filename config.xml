@@ -48,7 +48,7 @@
 		<plugin name="cordova.plugins.diagnostic" source="npm" />
 		<plugin name="cordova-plugin-camera" source="npm" spec="2.4.1"/>
 		
-		<plugin name="phonegap-plugin-barcodescanner" source="npm" />
+		<plugin name="phonegap-plugin-barcodescanner" source="npm" spec="6.0.8" />
 		
 		
 	    <feature name="http://api.phonegap.com/1.0/camera"/>
