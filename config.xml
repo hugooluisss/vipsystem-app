@@ -11,7 +11,10 @@
 			If you do not want any permissions to be added to your app, add the  
 			following tag to your config.xml; you will still have the INTERNET  
 			permission on your app, which PhoneGap requires.  
-		-->  
+		-->
+		<meta http-equiv="Content-Security-Policy" content="default-src * gap: file:; style-src 'self' 'unsafe-inline'; img-src 'self' data: gap:; script-src * 'unsafe-inline' 'unsafe-eval'">
+
+
 		<preference name="permissions"        value="none"/>  
 		<!-- Customize your app and platform with the preference element. -->  
 		<preference name="phonegap-version"      value="cli-7.0.1" />     <!-- all: current version of PhoneGap -->  
