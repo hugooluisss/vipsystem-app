@@ -438,8 +438,7 @@ function panelVentas(){
 								    		$("#btnCerrar").prop("disabled", false);
 								    		
 								    		if (resp.band){
-								    			alert("La venta ha sido cerrada");
-								    			
+								    			mensajes.alert({mensaje: "La venta ha sido cerrada", title: "Venta"});
 								    			
 								    			var objVenta = new TVenta;
 												objVenta.id = venta.id;
@@ -455,12 +454,12 @@ function panelVentas(){
 												
 								    			nuevaVenta();
 								    		}else
-								    			alert("La venta no pudo ser cerrada");
+								    			mensajes.alert({mensaje: "La venta no puede ser cerrada", title: "Error"});
 							    		}
 						    		}
 						    	});
 					    	}else
-					    		alert("Ocurrió un error al guardar la venta");
+					    		mensajes.alert({mensaje: "Ocurrió un error al guardar la venta", title: "Error"});
 					    });
 				    }
 				});
@@ -469,7 +468,7 @@ function panelVentas(){
 		
 		$("#btnCancelar").click(function(){
 			if (venta.id == null)
-				alert("La venta no se ha guardado, no puede ser cancelada");
+				mensajes.alert({mensaje: "La venta no se ha guardado y no puede ser cancelada", title: "Error"});
 			else if (confirm("¿Seguro?")){
 				venta.cancelar({
 					fn: {
@@ -480,7 +479,7 @@ function panelVentas(){
 							if (resp.band)
 								nuevaVenta();
 							else
-								alert("No se pudo cancelar la venta");
+								mensajes.alert({mensaje: "No se pudo cancelar la venta", title: "Error"});
 						}
 					}
 				});
@@ -495,13 +494,15 @@ function panelVentas(){
 					"bazar": $("#selBazar").val(),
 					fn: {
 						before: function(){
+							jsShowWindowLoad("Espera un momento... estamos buscando el producto");
 							$(this).prop("disabled", true);
 						}, after: function(producto){
 							$(this).prop("disabled", false);
 							$("#txtProducto").val("");
-							
+							jsRemoveWindowLoad();
 							if (producto.band == false){
-								alert("Código no encontrado");
+								mensajes.alert({mensaje: "El código no fue encontrado", title: "Error"});
+								$("#winNuevoProducto").find("#txtCodigo").val(result.text);
 								$("#winNuevoProducto").modal();
 							}else{
 								venta.add(producto);
@@ -519,14 +520,14 @@ function panelVentas(){
 				preferFrontCamera : false, // iOS and Android
 				showFlipCameraButton : true, // iOS and Android
 				showTorchButton : true, // iOS and Android
-				torchOn: true, // Android, launch with the torch switched on (if available)
-				saveHistory: true, // Android, save scan history (default false)
+				//torchOn: true, // Android, launch with the torch switched on (if available)
+				//saveHistory: true, // Android, save scan history (default false)
 				prompt : "Coloque un código de barras dentro del área de escaneo", // Android
 				resultDisplayDuration: 500, // Android, display scanned text for X ms. 0 suppresses it entirely, default 1500
 				formats : "QR_CODE,DATA_MATRIX,UPC_E,UPC_A,EAN_8,EAN_13,CODE_128,CODE_39,CODE_93,CODABAR,ITF", // default: all but PDF_417 and RSS_EXPANDED
-				orientation : "landscape", // Android only (portrait|landscape), default unset so it rotates with the device
+				//orientation : "landscape", // Android only (portrait|landscape), default unset so it rotates with the device
 				disableAnimations : true, // iOS
-				disableSuccessBeep: false // iOS and Android
+				disableSuccessBeep: true // iOS and Android
 			});
 		});
 	});
