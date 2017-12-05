@@ -747,8 +747,10 @@ function panelVentas(){
 				descuento: $("#txtDescuento").val(), 
 				fn: {
 					before: function(){
+						jsShowWindowLoad("Espera un momento... estamos descargando los datos");
 				    	if (fn.before !== undefined) fn.before();
 					}, after: function(resp){
+						jsRemoveWindowLoad();
 				    	if (resp.band){
 					    	if ($("#txtFolio").val() != resp.folio){
 					    		$("#txtFolio").val(resp.folio);
