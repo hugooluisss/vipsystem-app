@@ -215,12 +215,12 @@ function panelVentas(){
 				console.log($("#txtMonto").val(), $("#montoMaximo").val());
 				var obj = new TPago;
 				obj.add({
-					id: $("#id").val(), 
-					venta: venta.id, 
-					metodoCobro: $("#selMetodoCobro").val(), 
-					metodoPago: $("#selMetodoPago").val(), 
-					monto: $("#txtMonto").val(), 
-					referencia: $("#txtReferencia").val(), 
+					"id": $("#id").val(), 
+					"venta": venta.id, 
+					"metodoCobro": $("#selMetodoCobro").val(), 
+					"metodoPago": $("#selMetodoPago").val(), 
+					"monto": $("#txtMonto").val(), 
+					"referencia": $("#txtReferencia").val(), 
 					fn: {
 						before: function(){
 							$("#frmPago").find("[type=submit]").prop("disabled", true);
