@@ -445,12 +445,13 @@ function panelVentas(){
 				    	$("#btnPagar").prop("disabled", false);
 				    	
 				    	if (resp.band){
-				    		var email = mensajes.prompt({
+				    		mensajes.prompt({
 				    			"titulo": "Enviar nota de venta",
 				    			"mensaje": "¿A que correo deseas enviar la nota de venta?", 
 				    			"funcion": function(resp){
+				    				var correo = resp.input1;
 						    		venta.cerrar({
-							    		"email": resp.input1,
+							    		"email": correo,
 							    		fn: {
 								    		before: function(){
 									    		$("#btnCerrar").prop("disabled", true);
@@ -463,7 +464,7 @@ function panelVentas(){
 									    			var objVenta = new TVenta;
 													objVenta.id = venta.id;
 													objVenta.imprimir({
-														"email": resp.input1,
+														"email": correo,
 														fn: {
 															after: function(resp){
 																if (resp.resp.input1)
@@ -482,7 +483,6 @@ function panelVentas(){
 							});
 				    	}else
 				    		mensajes.alert({mensaje: "Ocurrió un error al guardar la venta", title: "Error"});
-					    });
 				    }
 				});
 			}
