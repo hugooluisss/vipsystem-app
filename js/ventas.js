@@ -460,10 +460,10 @@ function panelVentas(){
 								    			var objVenta = new TVenta;
 												objVenta.id = venta.id;
 												objVenta.imprimir({
-													"email": email,
+													"email": resp.input1,
 													fn: {
 														after: function(resp){
-															if (resp.email)
+															if (resp.resp.input1)
 																mensajes.alert({mensaje: "Nota de venta enviada al comprador", title: "Venta cerrada"});
 														}
 													}
