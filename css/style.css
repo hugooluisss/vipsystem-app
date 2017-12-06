@@ -1,0 +1,242 @@
+.sombra {
+  box-shadow: 2px 2px 5px #B2DFDB;
+}
+.sombra {
+  box-shadow: 2px 2px 5px #B2DFDB;
+}
+.modal .modal-header {
+  background: #3D8DBC;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#3D8DBC, #2c7cab);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#3D8DBC, #2c7cab);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#3D8DBC, #2c7cab);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#3D8DBC, #2c7cab);
+  /* Standard syntax */
+  color: white;
+  height: 40px;
+}
+.modal .modal-body {
+  overflow-y: auto;
+}
+@media (max-width: 728px) {
+  .modal .modal-body {
+    max-height: 550px;
+  }
+}
+.input-xs {
+  height: 25px;
+  padding: 2px 5px;
+  font-size: 12px;
+  line-height: 1.5;
+  /* If Placeholder of the input is moved up, rem/modify this. */
+  border-radius: 3px;
+}
+.input-group-xs > .form-control,
+.input-group-xs > .input-group-addon,
+.input-group-xs > .input-group-btn > .btn {
+  height: 25px;
+  padding: 1px 5px;
+  font-size: 12px;
+  line-height: 1.5;
+  min-width: 25px;
+}
+form input.validateError,
+form input.validateError:focus {
+  border: 1px solid orange;
+}
+form label.validateError {
+  color: red;
+  font-size: 12px;
+}
+.navbar-primary {
+  background: #3D8DBC;
+  border: none;
+}
+.navbar-primary .container-fluid a {
+  color: white;
+}
+.navbar-primary .container-fluid .navbar-toggle {
+  border: none;
+  color: white;
+}
+.navbar-primary .container-fluid .navbar-toggle:hover {
+  background: #3D7799;
+}
+.navbar-primary .navbar-nav {
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-inline-start: 0px;
+  width: 100%;
+}
+.navbar-primary .navbar-collapse {
+  z-index: 1000;
+}
+.navbar-primary .navbar-collapse.collapse ul.navbar-nav,
+.navbar-primary .navbar-collapse.collapsing ul.navbar-nav {
+  list-style: none;
+}
+.navbar-primary .navbar-collapse.collapse ul.navbar-nav li,
+.navbar-primary .navbar-collapse.collapsing ul.navbar-nav li {
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  width: 22%;
+  text-align: center;
+}
+@media (max-width: 728px) {
+  .navbar-primary .navbar-collapse.collapse ul.navbar-nav li,
+  .navbar-primary .navbar-collapse.collapsing ul.navbar-nav li {
+    float: left;
+    width: 44%;
+    height: 80px;
+  }
+}
+.navbar-primary .navbar-collapse.collapse ul.navbar-nav li a,
+.navbar-primary .navbar-collapse.collapsing ul.navbar-nav li a {
+  color: white;
+}
+.navbar-primary .navbar-collapse.collapse ul.navbar-nav li:hover,
+.navbar-primary .navbar-collapse.collapsing ul.navbar-nav li:hover {
+  background: #3D7799;
+}
+footer {
+  display: none;
+  height: 20px;
+  width: 100%;
+}
+footer .navbar {
+  min-height: 1px;
+  color: white;
+  font-size: 10px;
+  background: #3D7799;
+  -moz-border-radius-topleft: 30px;
+  -webkit-border-top-left-radius: 30px;
+  -moz-border-radius-topright: 30px;
+  -webkit-border-top-right-radius: 30px;
+}
+#login {
+  background-image: url("../img/bgLogin.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  height: 100% !important;
+  min-height: 100%;
+  float: left;
+  width: 100%;
+}
+#login .inicio {
+  text-align: center;
+  width: 99%;
+  margin-top: 50px;
+}
+#login .inicio .logo {
+  margin-bottom: 20px;
+  width: 140px;
+}
+#login .inicio .btnRegistrate {
+  font-size: 14px;
+}
+#panelVenta #header {
+  margin-top: 95px;
+  z-index: -1;
+}
+@media (max-width: 728px) {
+  #panelVenta #header {
+    margin-top: 50px;
+  }
+}
+#panelVenta .paneles {
+  top: 191px;
+  position: absolute;
+  width: 100%;
+  z-index: -2;
+}
+@media (max-width: 728px) {
+  #panelVenta .paneles {
+    top: 150px;
+  }
+}
+#panelVenta .box .row {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+#panelVenta .box .row .item {
+  border: 1px solid #000012;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background: #3D8DBC;
+  color: white;
+}
+#panelVenta .box .row .item [campo=descripcion] {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+#panelVenta nav {
+  margin-bottom: 0px;
+}
+#panelVenta ul#wizard {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+#panelVenta ul#wizard button {
+  border: none;
+  border-radius: 0px;
+  width: 33.33%;
+  float: left;
+}
+#panelVenta #frmFiltro .input-group-addon {
+  background: #3D8DBC;
+  border: none;
+  border-radius: 0px;
+}
+#panelVenta #dvProductos {
+  padding-top: 10px;
+}
+#panelVenta #dvProductos .panel {
+  padding-left: -15px !important;
+  padding-right: -15px !important;
+}
+#panelVenta #lstProductos {
+  font-size: arial;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+#panelVenta #lstProductos .producto {
+  padding: 5px 5px 5px 5px;
+  font-size: 14px;
+  height: 100px;
+  border: 1px solid #3D8DBC;
+}
+#panelVenta .dvFiltro .col-xs-12 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+html {
+  height: 100%;
+}
+body {
+  font-family: 'Abel', sans-serif;
+  background-color: #FDFDFD;
+}
+#WindowLoad {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 3200;
+  opacity: 0.8;
+  background: #3D8DBC;
+  color: white;
+}
+#WindowLoad img {
+  width: 70%;
+  margin-bottom: 10px;
+}
+
+/*# sourceMappingURL=style.css.map */

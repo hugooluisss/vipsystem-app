@@ -17,12 +17,16 @@
 				}
 			],
 			"sources": [
+				"componentes/footer.less",
+				"componentes/header.less",
 				"componentes/modal.less",
+				"componentes/otros.less",
 				"componentes/validate.less",
 				"funciones.less",
 				"variables.less",
 				"vistas/login.less",
-				"vistas/panel.less"
+				"vistas/panel.less",
+				"vistas/puntoventa.less"
 			]
 		}
 	}

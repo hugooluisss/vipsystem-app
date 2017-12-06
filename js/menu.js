@@ -11,6 +11,10 @@ function setMenu(){
 		panelVentas();
 	});
 	
+	$(".menu1").find(".productos").click(function(){
+		panelProductos();
+	});
+	
 	$(".menu1 .salir").click(function(){
 		mensajes.confirm({
 			mensaje: "¿Seguro de querer salir?", 
@@ -26,19 +30,4 @@ function setMenu(){
 	});
 	
 	//panelVentas();
-}
-
-function setPrincipal(){
-	$("#modulo").find("#btnOrdenes").click(function(){
-		panelOrdenes();
-	});
-	
-	$("#modulo").find("#btnPostuladas").click(function(){
-		panelPostuladas();
-	});
-	
-	$("#modulo").find("#btnAdjudicados").click(function(){
-		panelAdjudicados();
-	});
-	
 }

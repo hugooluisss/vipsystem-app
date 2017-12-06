@@ -184,18 +184,26 @@ function panelVentas(){
 					var json = jQuery.parseJSON(el.attr("datos"));
 					var objVenta = new TVenta;
 					
-					var email = prompt("¿A que correo se envía?", json.correo);
-					var json = jQuery.parseJSON(el.attr("datos"));
+					mensajes.prompt({
+		    			"titulo": "Enviar nota de venta",
+		    			"mensaje": "¿A que correo deseas enviar la nota de venta?", 
+		    			"funcion": function(resp){
+		    				var correo = resp.input1;
 					
-					objVenta.id = json.idVenta;
-					objVenta.imprimir({
-						"email": email,
-						fn: {
-							before: function(){
-								el.prop("disabled", true);
-							}, after: function(resp){
-								el.prop("disabled", false);
-							}
+							//var email = prompt("¿A que correo se envía?", json.correo);
+							var json = jQuery.parseJSON(el.attr("datos"));
+							
+							objVenta.id = json.idVenta;
+							objVenta.imprimir({
+								"email": correo,
+								fn: {
+									before: function(){
+										el.prop("disabled", true);
+									}, after: function(resp){
+										el.prop("disabled", false);
+									}
+								}
+							});
 						}
 					});
 				});
@@ -206,7 +214,7 @@ function panelVentas(){
 					"lengthChange": false,
 					"ordering": true,
 					"autoWidth": false,
-					"scrollX": true, 
+					//"scrollX": true, 
 					"buttons": false,
 					"order": [[ 0, "desc" ]]
 				});
