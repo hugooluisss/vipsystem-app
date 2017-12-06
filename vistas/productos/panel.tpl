@@ -1,4 +1,4 @@
-<div class="row" style="margin-top: 55px;">
+<div class="row" style="margin-top: 55px; margin-left: 0px; margin-right: 0px;">
 	<div class="col-xs-12">
 		<select class="form-control select-xs" id="selBazar" name="selBazar">
 			<option value="">Cargando bazares...</option>
