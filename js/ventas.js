@@ -553,6 +553,8 @@ function panelVentas(){
 	
 	function nuevaVenta(){
 		//var clienteDefault = jQuery.parseJSON($("#txtCliente").attr("jsonDefault"));
+		console.log("Limpiando panel para nueva venta");
+		
 		venta = new TVenta;
 		$("#btnGuardar").show();
 		$("#txtComentario").val("");
