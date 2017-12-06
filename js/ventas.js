@@ -467,7 +467,7 @@ function panelVentas(){
 														"email": correo,
 														fn: {
 															after: function(resp){
-																if (resp.resp.input1)
+																if (resp.email)
 																	mensajes.alert({mensaje: "Nota de venta enviada al comprador", title: "Venta cerrada"});
 															}
 														}
@@ -510,31 +510,34 @@ function panelVentas(){
 		
 		$("#btnGetBarcode").click(function(){
 			cordova.plugins.barcodeScanner.scan(function(result){
-				var producto = new TProducto;
-				producto.get({
-					"codigo": result.text,
-					"bazar": $("#selBazar").val(),
-					fn: {
-						before: function(){
-							jsShowWindowLoad("Espera un momento... estamos buscando el producto");
-							$(this).prop("disabled", true);
-						}, after: function(producto){
-							$(this).prop("disabled", false);
-							$("#txtProducto").val("");
-							jsRemoveWindowLoad();
-							if (producto.band == false){
-								mensajes.alert({mensaje: "El código no fue encontrado", title: "Error"});
-								$("#winNuevoProducto").find("#txtCodigo").val(result.text);
-								$("#winNuevoProducto").modal();
-							}else{
-								venta.add(producto);
-								pintarVenta();
+				if (result.text != '' || result.text != undefined){
+					var producto = new TProducto;
+					producto.get({
+						"codigo": result.text,
+						"bazar": $("#selBazar").val(),
+						fn: {
+							before: function(){
+								jsShowWindowLoad("Espera un momento... estamos buscando el producto");
+								$(this).prop("disabled", true);
+							}, after: function(producto){
+								$(this).prop("disabled", false);
+								$("#txtProducto").val("");
+								jsRemoveWindowLoad();
+								if (producto.band == false){
+									mensajes.alert({mensaje: "El código no fue encontrado", title: "Error"});
+									$("#winNuevoProducto").find("#txtCodigo").val(result.text);
+									$("#winNuevoProducto").modal();
+								}else{
+									venta.add(producto);
+									pintarVenta();
+								}
+								
+								return false;
 							}
-							
-							return false;
 						}
-					}
-				});
+					});
+				}else
+					alertify.log("Código no escaneado");
 			},function(error){
 				alertify.error("Ocurrió un error al leer el código");
 				console.log(error);

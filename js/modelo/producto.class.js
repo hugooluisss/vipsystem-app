@@ -52,7 +52,8 @@ TProducto = function(){
 		$.post(server + 'cproductos', {
 			"codigo": datos.codigo,
 			"bazar": datos.bazar,
-			"action": "get"
+			"action": "get",
+			"movil": 1
 		}, function(data){
 			if (datos.fn.after !== undefined)
 				datos.fn.after(data);
