@@ -447,8 +447,8 @@ function panelVentas(){
 				    	if (resp.band){
 				    		var email = mensajes.prompt({
 				    			"titulo": "Enviar nota de venta",
-				    			"mensaje": "¿A que correo deseas enviar la nota de venta?", $("#txtCliente").attr("email"), 
-				    			function: function(resp){
+				    			"mensaje": "¿A que correo deseas enviar la nota de venta?", 
+				    			"funcion": function(resp){
 						    		venta.cerrar({
 							    		"email": resp.input1,
 							    		fn: {
