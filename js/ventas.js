@@ -147,7 +147,7 @@ function panelVentas(){
 							}
 						}
 					});
-					console.log(el);
+					
 					if (el.idEstado != 1){
 						$("#btnGuardar").hide();
 					}
@@ -444,39 +444,44 @@ function panelVentas(){
 				    	$("#btnGuardar").prop("disabled", false);
 				    	$("#btnPagar").prop("disabled", false);
 				    	
-				    	var email = prompt("¿A que correo deseas enviar la nota de venta?", $("#txtCliente").attr("email"), function(resp){
-					    	if (resp.band){
-					    		venta.cerrar({
-						    		"email": resp.input1,
-						    		fn: {
-							    		before: function(){
-								    		$("#btnCerrar").prop("disabled", true);
-							    		}, after: function(resp){
-								    		$("#btnCerrar").prop("disabled", false);
-								    		
-								    		if (resp.band){
-								    			mensajes.alert({mensaje: "La venta ha sido cerrada", title: "Venta"});
-								    			
-								    			var objVenta = new TVenta;
-												objVenta.id = venta.id;
-												objVenta.imprimir({
-													"email": resp.input1,
-													fn: {
-														after: function(resp){
-															if (resp.resp.input1)
-																mensajes.alert({mensaje: "Nota de venta enviada al comprador", title: "Venta cerrada"});
+				    	if (resp.band){
+				    		var email = mensajes.prompt({
+				    			"titulo": "Enviar nota de venta",
+				    			"mensaje": "¿A que correo deseas enviar la nota de venta?", $("#txtCliente").attr("email"), 
+				    			function: function(resp){
+						    		venta.cerrar({
+							    		"email": resp.input1,
+							    		fn: {
+								    		before: function(){
+									    		$("#btnCerrar").prop("disabled", true);
+								    		}, after: function(resp){
+									    		$("#btnCerrar").prop("disabled", false);
+									    		
+									    		if (resp.band){
+									    			mensajes.alert({mensaje: "La venta ha sido cerrada", title: "Venta"});
+									    			
+									    			var objVenta = new TVenta;
+													objVenta.id = venta.id;
+													objVenta.imprimir({
+														"email": resp.input1,
+														fn: {
+															after: function(resp){
+																if (resp.resp.input1)
+																	mensajes.alert({mensaje: "Nota de venta enviada al comprador", title: "Venta cerrada"});
+															}
 														}
-													}
-												});
-												
-								    			nuevaVenta();
-								    		}else
-								    			mensajes.alert({mensaje: "La venta no puede ser cerrada", title: "Error"});
+													});
+													
+									    			nuevaVenta();
+									    		}else
+									    			mensajes.alert({mensaje: "La venta no puede ser cerrada", title: "Error"});
+								    		}
 							    		}
-						    		}
-						    	});
-					    	}else
-					    		mensajes.alert({mensaje: "Ocurrió un error al guardar la venta", title: "Error"});
+							    	});
+							    }
+							});
+				    	}else
+				    		mensajes.alert({mensaje: "Ocurrió un error al guardar la venta", title: "Error"});
 					    });
 				    }
 				});
