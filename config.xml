@@ -65,18 +65,20 @@
 		        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 			</config-file>
 		</platform>
-		-->
+		<!---
 		<plugin name="cordova-plugin-file" spec="~4.3.1" source="npm"/>
 		<plugin name="cordova-plugin-file-transfer" spec="~1.6.1" source="npm"/>
 		<plugin name="cordova-plugin-media-capture" source="npm"/>
+		-->
 		<plugin name="cordova-plugin-dialogs" source="npm"/>
 		<!-- add a version here, otherwise PGB will use whatever the latest version of the package on npm is -->
 		
 		<!--<plugin name="cordova-plugin-geolocation" source="npm"/>-->
 		
 		<plugin name="cordova-plugin-network-information" source="npm"/>
+		<!--
 		<plugin name="cordova-plugin-sqlite" source="npm"/>
-		<plugin name="cordova-plugin-device" source="npm"/>
+		<plugin name="cordova-plugin-device" source="npm"/>-->
 		<plugin name="cordova-plugin-whitelist" source="npm"/>
 
 
