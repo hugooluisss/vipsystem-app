@@ -10,10 +10,14 @@
 		.navbar-toggle{
 			border: none;
 			color: white;
-			
+			margin-top: 12px;
 			&:hover{
 				background: @color2;
 			}
+		}
+		
+		.navbar-brand{
+			margin-top: 12px;
 		}
 	}
 	
@@ -29,10 +33,12 @@
 		&.collapse, &.collapsing{
 			ul.navbar-nav{
 				list-style: none;
+				text-align: center;
 				li{
 					@media (max-width: @mq-xs-max){
 						float: left;
-						width: 44%;
+						//min-width: 50px;
+						max-width: 200px;
 						height: 80px;
 					}
 					
@@ -41,6 +47,7 @@
 					padding-top: 10px;
 					padding-bottom: 5px;
 					width: 22%;
+					min-width: 150px;
 					text-align: center;
 					
 					a{

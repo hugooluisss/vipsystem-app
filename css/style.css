@@ -61,9 +61,13 @@ form label.validateError {
 .navbar-primary .container-fluid .navbar-toggle {
   border: none;
   color: white;
+  margin-top: 12px;
 }
 .navbar-primary .container-fluid .navbar-toggle:hover {
   background: #3d7799;
+}
+.navbar-primary .container-fluid .navbar-brand {
+  margin-top: 12px;
 }
 .navbar-primary .navbar-nav {
   padding-left: 0px;
@@ -77,6 +81,7 @@ form label.validateError {
 .navbar-primary .navbar-collapse.collapse ul.navbar-nav,
 .navbar-primary .navbar-collapse.collapsing ul.navbar-nav {
   list-style: none;
+  text-align: center;
 }
 .navbar-primary .navbar-collapse.collapse ul.navbar-nav li,
 .navbar-primary .navbar-collapse.collapsing ul.navbar-nav li {
@@ -85,13 +90,14 @@ form label.validateError {
   padding-top: 10px;
   padding-bottom: 5px;
   width: 22%;
+  min-width: 150px;
   text-align: center;
 }
 @media (max-width: 728px) {
   .navbar-primary .navbar-collapse.collapse ul.navbar-nav li,
   .navbar-primary .navbar-collapse.collapsing ul.navbar-nav li {
     float: left;
-    width: 44%;
+    max-width: 200px;
     height: 80px;
   }
 }
@@ -219,7 +225,7 @@ footer .navbar {
   padding-right: 0px;
 }
 .panelDashboard {
-  top: 100px;
+  top: 130px;
   position: absolute;
   width: 100%;
   z-index: -2;

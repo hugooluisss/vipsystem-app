@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-sm-6">
+	<div class="col-sm-6" pendientes="empresa">
 		<div class="panel panel-danger" pendientes="empresa1">
 			<div class="panel-heading">Actualiza los datos de tu empresa</div>
 			<div class="panel-body">

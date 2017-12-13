@@ -27,6 +27,7 @@ function setPrincipal(){
 							$("[pendientes=bazar]").hide();
 							
 						if (!datosUsuario.pendientes.bandEmpresa){
+							$("[pendientes=empresa]").show();
 							if (datosUsuario.usuario.idPerfil == 1)
 								$("[pendientes=empresa2]").hide();
 							else
