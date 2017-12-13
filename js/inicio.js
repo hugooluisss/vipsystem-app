@@ -46,7 +46,7 @@ var app = {
 			location.href = "index.html";
 		
 		setMenu();
-		//setPrincipal();
+		setPrincipal();
 	}
 };
 

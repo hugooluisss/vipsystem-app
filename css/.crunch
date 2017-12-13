@@ -11,8 +11,8 @@
 						"strictMath": false,
 						"strictUnits": false,
 						"javascriptEnabled": false,
-						"sourceMap": true,
-						"sourcemap": true
+						"sourcemap": true,
+						"sourceMap": true
 					}
 				}
 			],
@@ -24,6 +24,7 @@
 				"componentes/validate.less",
 				"funciones.less",
 				"variables.less",
+				"vistas/dashboard.less",
 				"vistas/login.less",
 				"vistas/panel.less",
 				"vistas/puntoventa.less"
