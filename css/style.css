@@ -240,6 +240,17 @@ footer .navbar {
   position: absolute;
   z-index: -2;
 }
+.panelProductos {
+  top: 105px;
+  position: absolute;
+  width: 100%;
+  z-index: -2;
+}
+@media (max-width: 728px) {
+  .panelProductos {
+    top: 60px;
+  }
+}
 html {
   height: 100%;
 }

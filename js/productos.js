@@ -83,62 +83,68 @@ function panelProductos(){
 	});
 	
 	function getLista(){
-		jsShowWindowLoad("Espera un momento... estamos actualizando la lista de productos");
-		$.post(server + "listaProductos", {
-			"bazar": $("#selBazar").val(),
-			"movil": 1
-		}, function( data ) {
-			jsRemoveWindowLoad();
-			
-			$("#dvLista").html(data);
-			
-			$("[action=eliminar]").click(function(){
-				var el = $(this);
-				mensajes.confirm({
-					"mensaje": "¿Seguro?",
-					funcion: function(resp){
-						if (resp == 1){
-							var obj = new TProducto;
-							obj.del(el.attr("identificador"), {
-								after: function(data){
-									getLista();
-								}
-							});
+		if ($("#selBazar").val() != null){
+			jsShowWindowLoad("Espera un momento... estamos actualizando la lista de productos");
+			$.post(server + "listaProductos", {
+				"bazar": $("#selBazar").val(),
+				"movil": 1
+			}, function( data ) {
+				jsRemoveWindowLoad();
+				
+				$("#dvLista").html(data);
+				
+				$("[action=eliminar]").click(function(){
+					var el = $(this);
+					mensajes.confirm({
+						"mensaje": "¿Seguro?",
+						funcion: function(resp){
+							if (resp == 1){
+								var obj = new TProducto;
+								obj.del(el.attr("identificador"), {
+									after: function(data){
+										getLista();
+									}
+								});
+							}
 						}
-					}
+					});
+				});
+				
+				$("[action=modificar]").click(function(){
+					var el = jQuery.parseJSON($(this).attr("datos"));
+					
+					$("#id").val(el.idProducto);
+					$("#txtCodigoBarras").val(el.codigoBarras);
+					$("#txtCodigoInterno").val(el.codigoInterno);
+					$("#txtDescripcion").val(el.descripcion);
+					$("#txtColor").val(el.color);
+					$("#txtTalla").val(el.talla);
+					$("#txtUnidad").val(el.unidad);
+					$("#txtCosto").val(el.costo);
+					$("#txtDescuento").val(el.descuento);
+					$("#txtExistencias").val(el.existencias);
+					$("#txtPrecio").val(el.precio);
+					$("#txtMarca").val(el.marca);
+					$("#txtObservacion").val(el.observacion);
+					
+					$("#winAddProducto").modal();
+				});
+				
+				$("#tblDatos").DataTable({
+					"language": espaniol,
+					"paging": true,
+					"lengthChange": false,
+					"ordering": true,
+					"autoWidth": false,
+					"scrollX": true, 
+					"buttons": false,
+					"order": [[ 0, "desc" ]]
 				});
 			});
-			
-			$("[action=modificar]").click(function(){
-				var el = jQuery.parseJSON($(this).attr("datos"));
-				
-				$("#id").val(el.idProducto);
-				$("#txtCodigoBarras").val(el.codigoBarras);
-				$("#txtCodigoInterno").val(el.codigoInterno);
-				$("#txtDescripcion").val(el.descripcion);
-				$("#txtColor").val(el.color);
-				$("#txtTalla").val(el.talla);
-				$("#txtUnidad").val(el.unidad);
-				$("#txtCosto").val(el.costo);
-				$("#txtDescuento").val(el.descuento);
-				$("#txtExistencias").val(el.existencias);
-				$("#txtPrecio").val(el.precio);
-				$("#txtMarca").val(el.marca);
-				$("#txtObservacion").val(el.observacion);
-				
-				$("#winAddProducto").modal();
+		}else
+			mensajes.alert({"titulo": "Sin bazar definido", "mensaje": "Solicita que te asignen un bazar desde el backend", funcion: function(){
+					location.reload(1);
+				}
 			});
-			
-			$("#tblDatos").DataTable({
-				"language": espaniol,
-				"paging": true,
-				"lengthChange": false,
-				"ordering": true,
-				"autoWidth": false,
-				"scrollX": true, 
-				"buttons": false,
-				"order": [[ 0, "desc" ]]
-			});
-		});
 	}
 }

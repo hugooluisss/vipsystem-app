@@ -27,6 +27,7 @@
 				"vistas/dashboard.less",
 				"vistas/login.less",
 				"vistas/panel.less",
+				"vistas/productos.less",
 				"vistas/puntoventa.less"
 			]
 		}
