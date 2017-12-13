@@ -3,15 +3,19 @@ var clientes = {};
 var clienteDefault = null;
 
 function panelVentas(){
-	cordova.plugins.diagnostic.requestCameraAuthorization(
-    function(status){
-        console.log("Authorization request for camera use was " + (status == cordova.plugins.diagnostic.permissionStatus.GRANTED ? "granted" : "denied"));
-    }, function(error){
-        console.error("The following error occurred: "+error);
-    }, {
-        externalStorage: false
-    }
-);
+	try{
+		cordova.plugins.diagnostic.requestCameraAuthorization(
+		    function(status){
+		        console.log("Authorization request for camera use was " + (status == cordova.plugins.diagnostic.permissionStatus.GRANTED ? "granted" : "denied"));
+		    }, function(error){
+		        console.error("The following error occurred: "+error);
+		    }, {
+		        externalStorage: false
+		    }
+		);
+	}catch(e){
+		console.log(e);
+	}
 
 	var venta = new TVenta;
 	$.get("vistas/ventas/panel.tpl", function(resp){
@@ -36,6 +40,7 @@ function panelVentas(){
 			$(".paneles").hide();
 			$("#" + $(this).attr("panel")).show();
 		});
+		
 		jsShowWindowLoad("Espera un momento... estamos descargando los datos");
 		$.post(server + "puntoventa", {
 			"usuario": idUsuario,
@@ -78,7 +83,6 @@ function panelVentas(){
 				
 				ventana.find("#txtMonto").val(monto.toFixed(2));
 				ventana.find("#montoMaximo").val(monto.toFixed(2));
-				
 			});
 			
 			$("#winPago").on("shown.bs.modal", function(event){
@@ -107,8 +111,7 @@ function panelVentas(){
 				    }
 				});
 			});
-			
-	
+			console.log("Se terminó la carga");
 			jsRemoveWindowLoad();
 		}, "json");
 		
@@ -745,6 +748,7 @@ function panelVentas(){
 			
 			clienteDefault = jQuery.parseJSON($("#winClientes").find("#tblDatos").find("[clienteDefault=1]").attr("json"));
 			$("#txtCliente").val(clienteDefault.nombre).attr("identificador", clienteDefault.idCliente).attr("email", clienteDefault.correo);
+			console.log("Clientes cargados");
 		});
 	}
 	
