@@ -83,8 +83,9 @@ function panelProductos(){
 	});
 	
 	function getLista(){
+		jsShowWindowLoad("Espera un momento... estamos actualizando la lista de productos");
+		console.log($("#selBazar").val());
 		if ($("#selBazar").val() != null){
-			jsShowWindowLoad("Espera un momento... estamos actualizando la lista de productos");
 			$.post(server + "listaProductos", {
 				"bazar": $("#selBazar").val(),
 				"movil": 1
@@ -141,10 +142,9 @@ function panelProductos(){
 					"order": [[ 0, "desc" ]]
 				});
 			});
-		}else
-			mensajes.alert({"titulo": "Sin bazar definido", "mensaje": "Solicita que te asignen un bazar desde el backend", funcion: function(){
-					location.reload(1);
-				}
-			});
+		}else{
+			mensajes.alert({"titulo": "Sin bazar definido", "mensaje": "Solicita que te asignen un bazar desde el backend"});
+			location.reload(1);
+		}
 	}
 }
