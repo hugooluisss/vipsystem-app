@@ -610,7 +610,7 @@ function panelVentas(){
 				find.concat(" ", producto.descripcion);
 				
 				var col = $("<div />", {
-					class: "col-xs-4 col-sm-3 text-center producto",
+					class: "col-xs-6 col-sm-4 text-center producto",
 					"json": producto.json,
 					"find": find,
 					"data-toggle": "modal",
