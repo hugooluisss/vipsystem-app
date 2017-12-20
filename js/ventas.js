@@ -605,10 +605,14 @@ function panelVentas(){
 			$("#lstProductos").html("");			
 			$.each(productos, function(i, producto){
 				console.log(producto);
+				var find = String(producto.codigoBarras);
+				find.concat(" ", producto.codigoInterno);
+				find.concat(" ", producto.descripcion);
+				
 				var col = $("<div />", {
 					class: "col-xs-4 col-sm-3 text-center producto",
 					"json": producto.json,
-					"find": (producto.codigoBarras + " " + producto.codigoInterno + " " + producto.descripcion),
+					"find": find,
 					"data-toggle": "modal",
 					"data-target": "#winAddProducto"
 				}).append($("<h3/>", {
