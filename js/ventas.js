@@ -602,12 +602,13 @@ function panelVentas(){
 			"movil": 1,
 			"json": true
 		}, function(productos){
-			$("#lstProductos").html("");
+			$("#lstProductos").html("");			
 			$.each(productos, function(i, producto){
+				console.log(producto);
 				var col = $("<div />", {
 					class: "col-xs-4 col-sm-3 text-center producto",
-					json: producto.json,
-					find: producto.codigoBarras + " " + producto.codigoInterno + " " + producto.descripcion,
+					"json": producto.json,
+					"find": (producto.codigoBarras + " " + producto.codigoInterno + " " + producto.descripcion),
 					"data-toggle": "modal",
 					"data-target": "#winAddProducto"
 				}).append($("<h3/>", {
