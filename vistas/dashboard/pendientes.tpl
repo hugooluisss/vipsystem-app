@@ -8,7 +8,7 @@
 			</div>
 			
 			<div class="panel-footer text-right">
-					<a href="#" onclick="window.open('https://app.vipsystem.store/', '_system', 'location=no');">Configurar desde la web</a>
+				<a href="#" onclick="window.open('https://app.vipsystem.store/', '_system', 'location=no');">Configurar desde la web</a>
 			</div>
 		</div>
 		<div class="panel panel-danger" pendientes="empresa2">

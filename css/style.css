@@ -61,13 +61,14 @@ form label.validateError {
 .navbar-primary .container-fluid .navbar-toggle {
   border: none;
   color: white;
-  margin-top: 12px;
+  margin-top: 18px;
 }
 .navbar-primary .container-fluid .navbar-toggle:hover {
   background: #3D7799;
 }
 .navbar-primary .container-fluid .navbar-brand {
   margin-top: 12px;
+  font-size: 22px;
 }
 .navbar-primary .navbar-nav {
   padding-left: 0px;
@@ -85,11 +86,9 @@ form label.validateError {
 }
 .navbar-primary .navbar-collapse.collapse ul.navbar-nav li,
 .navbar-primary .navbar-collapse.collapsing ul.navbar-nav li {
-  margin-left: 10px;
-  margin-right: 10px;
   padding-top: 10px;
   padding-bottom: 5px;
-  width: 22%;
+  width: 25%;
   min-width: 150px;
   text-align: center;
 }
@@ -97,8 +96,8 @@ form label.validateError {
   .navbar-primary .navbar-collapse.collapse ul.navbar-nav li,
   .navbar-primary .navbar-collapse.collapsing ul.navbar-nav li {
     float: left;
-    max-width: 200px;
     height: 80px;
+    width: 50%;
   }
 }
 .navbar-primary .navbar-collapse.collapse ul.navbar-nav li a,
@@ -236,7 +235,6 @@ footer .navbar {
   }
 }
 .panelDashboard .alertas {
-  top: 100px;
   position: absolute;
   z-index: -2;
 }
@@ -256,7 +254,7 @@ html {
 }
 body {
   font-family: 'Abel', sans-serif;
-  background-color: #FDFDFD;
+  background-color: #E0E6FE;
 }
 #WindowLoad {
   position: fixed;
