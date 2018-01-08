@@ -44,9 +44,8 @@ var app = {
 		idUsuario = window.localStorage.getItem("sesion");
 		if (idUsuario == null || idUsuario == undefined || idUsuario == "undefined" || idUsuario == '')
 			location.href = "index.html";
-		
-		setMenu();
 		setPrincipal();
+		setMenu();
 	}
 };
 
