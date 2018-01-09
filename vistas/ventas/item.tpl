@@ -9,9 +9,13 @@
 		<div class="col-xs-12" campo="descripcion"></div>
 	</div>
 	<div class="row">
-		<div class="col-xs-6 text-center" campo="color"></div>
-		<div class="col-xs-6 text-center" campo="talla"></div>
+		<div class="col-xs-3 text-center">Talla</div>
+		<div class="col-xs-3 text-center" campo="talla"></div>
+		<div class="col-xs-3 text-center">Color</div>
+		<div class="col-xs-3 text-center" campo="color"></div>
 	</div>
+	<br />
+	<br />
 	<div class="row">
 		<div class="col-xs-2">Precio</div>
 		<div class="col-xs-4" campo="precio"></div>

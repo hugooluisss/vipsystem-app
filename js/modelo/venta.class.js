@@ -44,9 +44,12 @@ TVenta = function(){
 		var cont = 0;
 		plantilla = $("<div />");
 		if (self.productos.length == 0){
+			/*
 			plantilla = $("<div />", {
 				html: '<br /> <br /><center><i class="fa fa-cart-plus fa-5x" aria-hidden="true"></i><br />Aun no hay productos agregados</center>'
 			});
+			*/
+			plantilla = $("<div />");
 			console.log("Sin productos");
 		}else{
 			$(self.productos).each(function(){
