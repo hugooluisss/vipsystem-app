@@ -1,6 +1,21 @@
 function panelProductos(){
+	try{
+		cordova.plugins.diagnostic.requestCameraAuthorization(
+		    function(status){
+		        console.log("Authorization request for camera use was " + (status == cordova.plugins.diagnostic.permissionStatus.GRANTED ? "granted" : "denied"));
+		    }, function(error){
+		        console.error("The following error occurred: "+error);
+		    }, {
+		        externalStorage: false
+		    }
+		);
+	}catch(e){
+		console.log(e);
+	}
+	
 	$.get("vistas/productos/panel.tpl", function(resp){
 		$("#modulo").html(resp);
+		
 		jsShowWindowLoad("Espera un momento... estamos descargando los datos");
 		$.post(server + "puntoventa", {
 			"usuario": idUsuario,
@@ -80,6 +95,30 @@ function panelProductos(){
 	        }
 	
 	    });
+	    
+	    $("#btnGetBarcode").click(function(){
+			cordova.plugins.barcodeScanner.scan(function(result){
+				if (result.text != '' || result.text != undefined)
+					$("#txtCodigoBarras").val(result.text);
+				else
+					alertify.log("Código no escaneado");
+			},function(error){
+				alertify.error("Ocurrió un error al leer el código");
+				console.log(error);
+			}, {
+				preferFrontCamera : false, // iOS and Android
+				showFlipCameraButton : true, // iOS and Android
+				showTorchButton : true, // iOS and Android
+				//torchOn: true, // Android, launch with the torch switched on (if available)
+				//saveHistory: true, // Android, save scan history (default false)
+				prompt : "Coloque un código de barras dentro del área de escaneo", // Android
+				resultDisplayDuration: 500, // Android, display scanned text for X ms. 0 suppresses it entirely, default 1500
+				formats : "QR_CODE,DATA_MATRIX,UPC_E,UPC_A,EAN_8,EAN_13,CODE_128,CODE_39,CODE_93,CODABAR,ITF", // default: all but PDF_417 and RSS_EXPANDED
+				//orientation : "landscape", // Android only (portrait|landscape), default unset so it rotates with the device
+				disableAnimations : true, // iOS
+				disableSuccessBeep: true // iOS and Android
+			});
+		});
 	});
 	
 	function getLista(){
