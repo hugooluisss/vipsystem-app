@@ -248,7 +248,8 @@ function panelVentas(){
 		});
 		
 		reloadClientes();
-		function reloadClientes(){
+		function reloadClientes(asignarDefault){
+			asignarDefault = asignarDefault == undefined?true:asignarDefault;
 			var ventana = $("#winClientes");
 			ventana.find(".moda-body").html('Estamos actualizando la lista de clientes <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>');
 			$.post(server + "listaClientes", {
@@ -267,8 +268,10 @@ function panelVentas(){
 					pintarVenta();
 				});
 				
-				clienteDefault = jQuery.parseJSON($("#winClientes").find("#tblDatos").find("[clienteDefault=1]").attr("json"));
-				$("#txtCliente").val(clienteDefault.nombre).attr("identificador", clienteDefault.idCliente).attr("email", clienteDefault.correo);
+				if (asignarDefault){
+					clienteDefault = jQuery.parseJSON($("#winClientes").find("#tblDatos").find("[clienteDefault=1]").attr("json"));
+					$("#txtCliente").val(clienteDefault.nombre).attr("identificador", clienteDefault.idCliente).attr("email", clienteDefault.correo);
+				}
 				console.log("Clientes cargados");
 			});
 		}
@@ -280,6 +283,56 @@ function panelVentas(){
 			else{
 				$(".paneles").hide();
 				$("#pnlPagar").show();
+			}
+		});
+		
+		$("#frmAddProducto").validate({
+			debug: true,
+			rules: {
+				//txtCodigo: "required",
+				txtDescripcion: "required",
+				txtPrecio: {
+					required: true,
+					number: true,
+					min: 0
+				},
+			},
+			wrapper: 'span', 
+			submitHandler: function(form){
+				var obj = new TProducto;
+				obj.add({
+					"bazar": $("#selBazar").val(),
+					//"codigoInterno": $("#txtCodigo").val(), 
+					"descripcion": $("#txtDescripcion").val(),
+					"precio": $("#txtPrecio").val(),
+					"observacion": "Pedido",
+					"eliminar": true,
+					fn: {
+						after: function(datos){
+							if (datos.band){
+								$("#winNuevoProducto").modal("hide");
+								
+								var ventana = $("#frmAddProducto");
+								var producto = {};
+								producto.idProducto = datos.id;
+								producto.descripcion = ventana.find("#txtDescripcion").val();
+								producto.codigoInterno = ventana.find("#txtCodigo").val();
+								producto.precio = ventana.find("#txtPrecio").val();
+								producto.color = "";
+								producto.talla = "";
+								producto.descuento = 0;
+								producto.codigoBarras = "";
+								
+								$(".paneles").hide();
+								$("#pnlVentaProductos").show();
+								venta.add(producto);
+								pintarVenta();
+							}else{
+								mensajes.alert({mensaje: "No se pudo guardar el registro", title: "Error"});
+							}
+						}
+					}
+				});
 			}
 		});
 		
@@ -315,8 +368,8 @@ function panelVentas(){
 								
 								$("#frmAddCliente").get(0).reset();
 								$("#winAddCliente").modal("hide");
-								reloadClientes();
-								mensajes.log("Cliente registrado y asignado");
+								reloadClientes(false);
+								mensajes.log({mensaje: "Cliente registrado y asignado"});
 							}else{
 								mensajes.alert({mensaje: "No se pudo guardar el registro", title: "Error"});
 							}
