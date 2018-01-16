@@ -132,6 +132,9 @@ function panelProductos(){
 				jsRemoveWindowLoad();
 				
 				$("#dvLista").html(data);
+				var tabla = $("#dvLista").find("#tblDatos");
+				$("#dvLista").append(tabla);
+				$("#dvLista").find(".box").remove();
 				
 				$("[action=eliminar]").click(function(){
 					var el = $(this);

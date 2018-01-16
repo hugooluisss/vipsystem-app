@@ -11,8 +11,8 @@
 						"strictMath": false,
 						"strictUnits": false,
 						"javascriptEnabled": false,
-						"sourceMap": true,
-						"sourcemap": true
+						"sourcemap": true,
+						"sourceMap": true
 					}
 				}
 			],
@@ -28,7 +28,7 @@
 				"vistas/login.less",
 				"vistas/panel.less",
 				"vistas/productos.less",
-				"vistas/puntoventa.less"
+				"vistas/venta.less"
 			]
 		}
 	}

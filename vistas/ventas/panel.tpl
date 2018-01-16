@@ -6,7 +6,7 @@
 	</div>
 	<div class="box paneles" id="pnlVenta">
 		<div class="row">
-			<div class="widthfull">
+			<div class="widthfull text-center">
 				<select class="form-control select-xs" id="selBazar" name="selBazar">
 					<option value="">Cargando bazares...</option>
 				</select>

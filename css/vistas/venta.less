@@ -15,10 +15,18 @@
 	}
 	
 	#pnlVenta{
-		.widhFull{
+		.widhFull, .widthfull{
 			padding-left: 0px;
 			padding-right: 0px;
 			width: 100%;
+			
+			#selBazar{
+				margin-top: 10px;
+				margin-bottom: 10px;
+				width: 95%;
+				
+				display: inline-block;
+			}
 		}
 		
 		.btn{
@@ -38,7 +46,7 @@
 	
 	#dvProductos{
 		padding-top: 10px;
-		
+		padding-bottom: 30px;
 		.panel{
 			padding-left: -15px !important;
 			padding-right: -15px !important;
@@ -70,9 +78,24 @@
 		-webkit-border-radius: 50px;
 		-moz-border-radius: 50px;
 		border-radius: 50px;
+		z-index: 5;
 	}
 	
 	#btnPanelPagar{
 		right: 80px;
+	}
+	
+	#winVentas{
+		.modal-body{
+			padding-left: 0px;
+			padding-right: 0px;
+		}
+	}
+	
+	.dataTables_wrapper{
+		.col-sm-12{
+			padding-left: 0px;
+			padding-right: 0px;
+		}
 	}
 }
