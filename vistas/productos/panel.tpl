@@ -7,7 +7,7 @@
 			<button id="btnAdd" class="btn btn-primary btn-block" data-toggle="modal" data-target="#winAddProducto">Agregar nuevo producto</button>
 		</div>
 	</div>
-	
+	<br />
 	<div class="row" style="margin-left: 0px; margin-right: 0px;">
 		<div class="col-xs-12" id="dvLista">
 		</div>

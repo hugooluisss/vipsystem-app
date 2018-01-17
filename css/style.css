@@ -257,6 +257,14 @@ footer .navbar {
     top: 63px;
   }
 }
+.panelProductos #selBazar {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+.panelProductos #btnAdd {
+  margin-bottom: 10px;
+}
 .panelProductos .widthFull,
 .panelProductos .fullWidth {
   padding-left: 0px;
