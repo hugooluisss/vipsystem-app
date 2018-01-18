@@ -677,6 +677,10 @@ function panelVentas(){
 		pintarVenta();
 		getListaPagos();
 		
+		
+		$("#btnWinAddNuevoProducto").click(function(){
+			$("#winNuevoProducto").modal();
+		});
 	}
 	
 	function pintarVenta(){

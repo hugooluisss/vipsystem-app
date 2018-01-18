@@ -41,7 +41,7 @@
 						<span class="input-group-addon">
 							<i class="fa fa-search" aria-hidden="true"></i>
 						</span>
-						<span class="input-group-addon" data-toggle="modal" data-target="#winNuevoProducto">
+						<span class="input-group-addon" data-toggle="modal" data-target="#winNuevoProducto" id="btnWinAddNuevoProducto">
 							<i class="fa fa-plus" aria-hidden="true"></i>
 						</span>
 					</div>
