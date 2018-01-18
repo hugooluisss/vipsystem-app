@@ -211,7 +211,6 @@
 								<button type="submit" class="btn btn-info pull-right">Guardar</button>
 							</div>
 						</div>
-					</div>
 					</form>
 				</div>
 			</div>

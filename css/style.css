@@ -351,5 +351,13 @@ body {
   width: 70%;
   margin-bottom: 10px;
 }
+#modulo {
+  margin-top: 107px;
+}
+@media (max-width: 728px) {
+  #modulo {
+    margin-top: 0px;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */
