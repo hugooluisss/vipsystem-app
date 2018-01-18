@@ -41,7 +41,7 @@
 						<span class="input-group-addon">
 							<i class="fa fa-search" aria-hidden="true"></i>
 						</span>
-						<span class="input-group-addon" data-toggle="modal" data-target="#winNuevoProducto" id="btnWinAddNuevoProducto">
+						<span class="input-group-addon" id="btnWinAddNuevoProducto">
 							<i class="fa fa-plus" aria-hidden="true"></i>
 						</span>
 					</div>
@@ -163,20 +163,6 @@
 		</div>
 	</div>
 	
-	
-	<div class="modal fade" id="winVentas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		<div class="modal-dialog modal-lg" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title">Historial de ventas</h4>
-				</div>
-				<div class="modal-body" style="overflow-x: scroll">
-				</div>
-			</div>
-		</div>
-	</div>
-	
 	<div class="modal fade" id="winNuevoProducto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
@@ -217,6 +203,19 @@
 		</div>
 	</div>
 	
+	
+	<div class="modal fade" id="winVentas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Historial de ventas</h4>
+				</div>
+				<div class="modal-body" style="overflow-x: scroll">
+				</div>
+			</div>
+		</div>
+	</div>
 	
 	<div class="modal fade" id="winAddProducto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" datos="">
 		<div class="modal-dialog modal-lg" role="document">
