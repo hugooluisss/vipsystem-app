@@ -20,8 +20,10 @@
 			</tfoot>
 		</table>
 	</div>
+	<!--
 	<div class="row text-right">
 		<div class="col-xs-12">
 			<a href="#" class="btn btn-primary" onclick="window.open('https://app.vipsystem.store/', '_system', 'location=no');">Crea un nuevo bazar</a>
 		</div>
 	</div>
+	-->
